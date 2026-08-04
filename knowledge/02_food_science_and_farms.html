@@ -51,6 +51,7 @@
             overflow: hidden;
         }
         .img-hero { width: 100%; max-height: 400px; object-fit: cover; }
+        .img-secondary { width: 100%; max-height: 300px; object-fit: cover; border-radius: 12px; }
         .btn-pill-outline-dark {
             background-color: transparent;
             color: var(--ink);
@@ -60,6 +61,20 @@
             font-size: 14px;
             font-weight: 500;
             text-decoration: none;
+        }
+        .btn-pill-jalan {
+            background-color: #ff5a00;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-jalan:hover {
+            background-color: #d94b00;
+            color: var(--on-primary);
         }
         .btn-pill-gmaps {
             background-color: #ea4335;
@@ -173,29 +188,55 @@
             </div>
         </div>
 
-        <!-- Place 2: Strawberry Farms in Late December -->
+        <!-- Place 2: Strawberry Farms in Late December - Kawarakeya Farm -->
         <div class="card-shopifi">
-            <img src="images/strawberry_picking.jpg" alt="กิจกรรมเก็บสตรอเบอร์รี่สดจากต้นในเรือนกระจกช่วงฤดูหนาว" class="img-hero">
+            <img src="images/kawarakeya_strawberry_1.jpg" alt="ฟาร์มสตรอเบอร์รี่เรือนกระจก Kawarakeya (ภาพถ่ายจริง Jalan net)" class="img-hero">
             <div class="card-body p-4 p-md-5">
                 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
-                    <h2 class="fw-bold mb-0">2. ฟาร์มสตรอเบอร์รี่สดช่วงฤดูหนาว (Strawberry Picking)</h2>
+                    <h2 class="fw-bold mb-0">2. Kawarakeya Strawberry Farm (かわらけや いちご狩り)</h2>
                     <div>
+                        <a href="https://www.jalan.net/kankou/spt_guide000000192553/" target="_blank" class="btn-pill-jalan me-1"><i class="fa-solid fa-strawberry me-1"></i>Jalan.net (4.1★)</a>
+                        <a href="https://maps.google.com/?q=Kawarakeya+Tsukuba" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
                         <span class="tag-mint me-1">บุฟเฟต์ทานไม่อั้น 30 นาที</span>
-                        <span class="tag-pistachio">หวานฉ่ำฤดูหนาว</span>
+                        <span class="tag-pistachio">ให้อาหารน้องแพะ 🐐</span>
                     </div>
                 </div>
+                <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> 1599-1 Kamisakai, Tsukuba-shi, Ibaraki 305-0011 (เขต Oda)</p>
+                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> ลิงก์จอง Jalan.net: <a href="https://www.jalan.net/kankou/spt_guide000000192553/" target="_blank" class="fw-bold text-dark">Jalan Kawarakeya Booking</a> | เว็บไซต์ฟาร์ม: <a href="https://kawarakeya.com/" target="_blank" class="text-dark">kawarakeya.com</a></p>
 
                 <hr class="my-4">
 
-                <div class="mb-4 p-4 rounded-3" style="background-color: var(--canvas-cream); border: 1px solid var(--hairline-light);">
-                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
-                        <h5 class="fw-bold text-dark mb-0">🍓 Kawarakeya Farm (かわらけや) - เขต Oda</h5>
-                        <a href="https://maps.google.com/?q=Kawarakeya+Tsukuba" target="_blank" class="btn-pill-gmaps"><i class="fa-solid fa-map-location-dot me-1"></i>ดูบน Google Maps</a>
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <img src="images/kawarakeya_strawberry_2.jpg" alt="ลูกสตรอเบอร์รี่สดความฉ่ำในเรือนกระจก (Jalan net CDN)" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>สตรอเบอร์รี่สดลูกโต หวานฉ่ำในเรือนกระจกอบอุ่น (ภาพถ่าย Jalan.net)</em></p>
                     </div>
-                    <p class="small text-muted mb-2"><i class="fa-solid fa-bus me-1"></i> การเดินทาง: ขึ้นรถบัส **Tsukbus** สาย <em>Oda Shuttle</em> (小田シャトル) จาก Tsukuba Center ลงป้าย <em>"Sakae"</em> (栄) 14 นาที (200 เยน) เดินต่อ 10 นาที</p>
-                    <p class="small text-muted mb-2">อัตราค่าบริการ: ผู้ใหญ่ประมาณ 2,000 – 2,800 เยน / เด็กประมาณ 1,500 – 2,300 เยน (เด็ดสดๆ จากต้นทานไม่อั้น 30 นาที)</p>
-                    <p class="small text-secondary mb-0"><i class="fa-solid fa-link me-1"></i> ลิงก์ทางการ: <a href="https://kawarakeya.com/" target="_blank" class="fw-bold text-dark">Kawarakeya Farm Official</a></p>
+                    <div class="col-md-6">
+                        <img src="images/kawarakeya_strawberry_3.jpg" alt="บรรยากาศฟาร์มและแปลงสตรอเบอร์รี่ Kawarakeya (Jalan net CDN)" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>ทางเดินในเรือนกระจกยกรอบ เดินเก็บสะดวกทุกวัย (ภาพถ่าย Jalan.net)</em></p>
+                    </div>
                 </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold"><i class="fa-solid fa-star me-2"></i>คะแนนรีวิว Jalan.net</h5>
+                        <ul class="small mb-3">
+                            <li><strong>คะแนนรวม:</strong> <strong>4.1 / 5 ดาว</strong> (จาก 13 รีวิวบน Jalan.net)</li>
+                            <li><strong>คะแนนกลุ่มครอบครัวเด็กเล็ก (子連れ):</strong> <span class="badge bg-danger fs-6">4.7 / 5 ดาว</span> (คะแนนสูงมาก!)</li>
+                            <li><strong>กลุ่มหลักที่เข้าชม:</strong> ครอบครัวที่มีเด็กเล็ก (3-5 คน) และผู้สูงอายุ</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold"><i class="fa-solid fa-bus me-2"></i>การเดินทาง & อัตราค่าบริการ</h5>
+                        <ul class="small mb-0">
+                            <li><strong>การเดินทาง:</strong> ขึ้นบัส **Tsukbus** สาย <em>Oda Shuttle</em> (小田シャトル) จาก Tsukuba Center ลงป้าย <em>"Sakae"</em> (栄) 14 นาที (200 เยน) เดินต่อ 10 นาที</li>
+                            <li><strong>ราคาบุฟเฟต์ 30 นาที:</strong> ผู้ใหญ่ ~2,000–2,800 เยน / เด็ก ~1,500–2,300 เยน</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold mb-2"><i class="fa-solid fa-heart me-2"></i>ไฮไลต์ยอดฮิตสำหรับครอบครัว: ให้อาหารน้องแพะ 🐐</h5>
+                <p class="small mb-0">เด็กๆ สามารถนำขั้วและใบสตรอเบอร์รี่ที่เก็บเสร็จแล้วไปป้อนให้ **น้องแพะ (ヤギ)** ในฟาร์มได้เลย เป็นกิจกรรมธรรมชาติและ Eco-cycle ที่เด็กๆ ชื่นชอบมาก รับประกันความประทับใจสำหรับน้องเติมเต็มครับ!</p>
             </div>
         </div>
 

@@ -1,16 +1,25 @@
 # Raw Data: Food Science, การเกษตร & ฟาร์มสตรอเบอร์รี่ (Tsukuba)
 
-เอกสารรวบรวมข้อมูลดิบแบบละเอียด (Raw Data) สำหรับสถานที่ดูงานวิทยาศาสตร์อาหาร การเกษตร และฟาร์มสตรอเบอร์รี่ในเมือง Tsukuba พร้อมลิงก์ Jalan.net, Google Maps และภาพถ่าย CDN
+เอกสารรวบรวมข้อมูลดิบแบบละเอียด (Raw Data) สำหรับสถานที่ดูงานวิทยาศาสตร์อาหาร การเกษตร ฟาร์มสตรอเบอร์รี่ และโรงเรียนโภชนาการเด็กในเมือง Tsukuba พร้อมลิงก์ NARO Official, Jalan.net, Aozora Kitchen, Google Maps และภาพถ่าย CDN
 
 ---
 
-## 1. NARO Tsukuba Agriculture Research Hall (食と農の科学館)
-- **ทำเล:** 3-1-1 Kannondai, Tsukuba City, Ibaraki 305-8517, Japan
-- **ภาพถ่าย:** `images/naro_food_research.jpg`
+## 1. NARO Tsukuba Agriculture Research Hall (食と農の科学館 - TARH)
+- **ทำเล:** 3-1-1 Kannondai, Tsukuba City, Ibaraki 305-8517, Japan (พิพิธภัณฑ์การเกษตรและวิทยาศาสตร์อาหารแห่งชาติ)
+- **ภาพถ่ายทางการ (NARO Official CDN):**
+  - `images/naro_tarh_exterior.webp` (อาคารภายนอก)
+  - `images/naro_tarh_interior.webp` (โถงนิทรรศการภายใน)
+  - `images/naro_tarh_theater.webp` (Mini Theater 3 จอสมจริง)
+  - `images/naro_tarh_special_exhibition.webp` (Special Exhibition: FRONTIER GALLERY - Smart Ag / AI / Biotech)
+  - `images/naro_tarh_advanced_tech.webp` (Advanced Technology Exhibition)
 - **ค่าเข้าชม:** เข้าชมฟรี (Free Entry)
 - **สถานะเปิดทำการช่วง 24-27 ธ.ค.:** **เปิดทำการปกติทุกวัน** (9:00 - 16:00 น.)
 - **การเดินทาง:** ขึ้นรถบัส Tsukbus สาย Nambu Shuttle (南部シャトル) จาก Tsukuba Center ลงป้าย "Norin Danchi Chuo" 18 นาที เดินต่อ 5 นาที
 - **จุดเด่น:** จัดแสดงโภชนาการพืช อาหารฟังก์ชัน เกษตรอัจฉริยะ AI หุ่นยนต์เกษตร และโรงภาพยนตร์ 3 จอ
+- **ลิงก์ข้อมูล:**
+  - 🌿 **NARO Official Site:** [NARO TARH Official Site](https://www.naro.go.jp/tarh/)
+  - 🌐 **NARO English:** [NARO TARH English Guide](https://www.naro.go.jp/english/laboratory/tarh/index.html)
+  - 📍 **Google Maps:** [NARO TARH on Google Maps](https://maps.google.com/?q=NARO+Tsukuba+Agriculture+Research+Hall)
 
 ---
 
@@ -33,7 +42,19 @@
 
 ---
 
-## 3. Family Cooking Workshop
-- **ศูนย์กิจกรรม:** Tokyo Gas Tsukuba Cooking Studio / Aozora Kitchen Tsukuba
-- **งบประมาณ:** 800 – 2,500 เยน / คน
-- **กิจกรรม:** เวิร์กชอปทำขนมจากแป้งข้าวอิบารากิ และเบเกอรี่สดใหม่
+## 3. Aozora Kitchen (青空キッチン - 子どものための食育教室)
+- **ประเภท:** โรงเรียนสอนทำอาหารและโภชนาการสำหรับเด็กอันดับ 1 ในญี่ปุ่น (Kids Food Education School)
+- **ภาพถ่ายทางการ (Aozora Kitchen Official Server):**
+  - `images/aozora_kitchen_support.jpg` (บรรยากาศการทำอาหารและการดูแลของคุณครู)
+  - `images/aozora_kitchen_cooking.png` (1. 料理実習 Hands-on Cooking)
+  - `images/aozora_kitchen_drill.png` (2. 食育ドリル Food Education Drill)
+  - `images/aozora_kitchen_level.png` (3. 進級システム Level System)
+  - `images/aozora_kitchen_kids1.jpg` (รอยยิ้มและความภาคภูมิใจของเด็กๆ ขณะทำอาหาร)
+- **ระบบการเรียนรู้:**
+  - 🍳 **料理実習 (Hands-on Cooking):** ทำอาหารจริง พัฒนาประสาทสัมผัสทั้ง 5 (五感) และความคิดสร้างสรรค์
+  - 📖 **食育ドリル (Food Education Drill):** แบบฝึกหัดโภชนาการเล่มแรกของญี่ปุ่น
+  - 🏅 **進級システム (Level Up System):** ทดสอบวัดระดับทุก 3 เดือน
+  - 👨‍🍳 **キッズ食育トレーナー:** ทีมอาจารย์ผู้เชี่ยวชาญโภชนาการเด็กโดยเฉพาะ
+- **ลิงก์ข้อมูล:**
+  - 🍪 **Official Site:** [Aozora Kitchen Official Website](https://aozora-kitchen.com/)
+- ** Family Cooking Workshop อื่นๆ:** Tokyo Gas Tsukuba Cooking Studio (งบประมาณ 800 – 2,500 เยน / คน)

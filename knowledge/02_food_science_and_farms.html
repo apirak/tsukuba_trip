@@ -62,6 +62,20 @@
             font-weight: 500;
             text-decoration: none;
         }
+        .btn-pill-naro {
+            background-color: #009342;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-naro:hover {
+            background-color: #006e31;
+            color: var(--on-primary);
+        }
         .btn-pill-jalan {
             background-color: #ff5a00;
             color: var(--on-primary);
@@ -74,6 +88,20 @@
         }
         .btn-pill-jalan:hover {
             background-color: #d94b00;
+            color: var(--on-primary);
+        }
+        .btn-pill-aozora {
+            background-color: #00a0e9;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-aozora:hover {
+            background-color: #0082c3;
             color: var(--on-primary);
         }
         .btn-pill-gmaps {
@@ -149,18 +177,19 @@
 
         <!-- Place 1: NARO Agriculture Research Hall -->
         <div class="card-shopifi">
-            <img src="images/naro_food_research.jpg" alt="ห้องจัดแสดงงานวิจัยวิทยาศาสตร์อาหารและการเกษตรอัจฉริยะ NARO" class="img-hero">
+            <img src="images/naro_tarh_exterior.webp" alt="อาคารภายนอก NARO Tsukuba Agriculture Research Hall (食と農の科学館)" class="img-hero">
             <div class="card-body p-4 p-md-5">
                 <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
                     <h2 class="fw-bold mb-0">1. NARO Tsukuba Agriculture Research Hall (食と農の科学館)</h2>
                     <div>
-                        <a href="https://maps.google.com/?q=NARO+Tsukuba+Agriculture+Research+Hall" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>ดูบน Google Maps</a>
+                        <a href="https://www.naro.go.jp/tarh/" target="_blank" class="btn-pill-naro me-1"><i class="fa-solid fa-seedling me-1"></i>NARO Official Site</a>
+                        <a href="https://maps.google.com/?q=NARO+Tsukuba+Agriculture+Research+Hall" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
                         <span class="tag-mint me-1">เข้าชมฟรี (Free Entry)</span>
                         <span class="tag-pistachio">เปิดช่วง 24-27 ธ.ค.</span>
                     </div>
                 </div>
-                <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> 3-1-1 Kannondai, Tsukuba City, Ibaraki 305-8517, Japan</p>
-                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> ลิงก์ทางการ: <a href="https://www.naro.go.jp/tarh/" target="_blank" class="fw-bold text-dark">NARO TARH Official Site</a> | ภาษาอังกฤษ: <a href="https://www.naro.go.jp/english/laboratory/tarh/index.html" target="_blank" class="text-dark">NARO English</a></p>
+                <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> 3-1-1 Kannondai, Tsukuba City, Ibaraki 305-8517, Japan (พิพิธภัณฑ์การเกษตรและวิทยาศาสตร์อาหารแห่งชาติ)</p>
+                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> ลิงก์ภาษาอังกฤษ: <a href="https://www.naro.go.jp/english/laboratory/tarh/index.html" target="_blank" class="fw-bold text-dark">NARO TARH English Guide</a></p>
 
                 <hr class="my-4">
 
@@ -179,12 +208,40 @@
                     </div>
                 </div>
 
-                <h5 class="fw-bold mb-3"><i class="fa-solid fa-microscope me-2"></i>จุดเด่นและนวัตกรรมอาหาร</h5>
-                <ul>
-                    <li><strong>Food Science & Future Dining:</strong> จัดแสดงการวิเคราะห์โภชนาการพืช เทคโนโลยีแปรรูปอาหาร ถนอมอาหาร และการวิจัยอาหารฟังก์ชัน (Functional Food)</li>
-                    <li><strong>Smart Agriculture Exhibition:</strong> ระบบเกษตรอัจฉริยะ การใช้ AI, หุ่นยนต์หว่านเก็บเกี่ยว และเกษตรกรรมแนวตั้ง</li>
-                    <li><strong>3-Screen Immersive Theater:</strong> โรงภาพยนตร์ 3 จอนำเสนอโลกนวัตกรรมอาหารของญี่ปุ่น</li>
-                </ul>
+                <h5 class="fw-bold mb-3"><i class="fa-solid fa-layer-group me-2"></i>โซนนิทรรศการหลักภายในอาคาร (Exhibition Zones)</h5>
+                
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <img src="images/naro_tarh_theater.webp" alt="ミニシアター Theater 3 จอนำเสนอภาพเสมือนจริง" class="img-secondary mb-2">
+                        <h6 class="fw-bold text-dark mb-1">1. Mini Theater (ミニシアター)</h6>
+                        <p class="small text-muted mb-0">โรงภาพยนตร์ 3 จอสมจริง สัมผัสบรรยากาศแปลงวิจัยและเทคโนโลยีการเกษตรอย่างใกล้ชิด</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/naro_tarh_special_exhibition.webp" alt="特別展示エリア Special Exhibition FRONTIER GALLERY" class="img-secondary mb-2">
+                        <h6 class="fw-bold text-dark mb-1">2. Special Exhibition (特別展示エリア)</h6>
+                        <p class="small text-muted mb-0">จัดแสดงเกษตรอัจฉริยะ (Smart Agriculture), AI x 農業, และไบโอเทคโนโลยีแห่งอนาคต</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/naro_tarh_advanced_tech.webp" alt="新技術展示エリア Advanced Technology Exhibition" class="img-secondary mb-2">
+                        <h6 class="fw-bold text-dark mb-1">3. Advanced Technology (新技術展示)</h6>
+                        <p class="small text-muted mb-0">เทคโนโลยีความมั่นคงทางอาหาร หุ่นยนต์เก็บเกี่ยว และการเกษตรคาร์บอนต่ำ Society 5.0</p>
+                    </div>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <img src="images/naro_tarh_interior.webp" alt="โถงจัดแสดงภายในอาคาร NARO" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>บรรยากาศภายในโถงจัดแสดงหลัก NARO Agriculture Research Hall</em></p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-2"><i class="fa-solid fa-microscope me-2"></i>นวัตกรรมอาหารสำหรับน้องเติมเต็ม</h5>
+                        <ul class="small mb-0">
+                            <li><strong>Food Science & Future Dining:</strong> จัดแสดงการวิเคราะห์โภชนาการพืช เทคโนโลยีแปรรูปอาหาร ถนอมอาหาร และอาหารฟังก์ชัน (Functional Food)</li>
+                            <li><strong>Smart Farming Robotics:</strong> หุ่นยนต์หว่านไถ-เก็บเกี่ยวอัตโนมัติ และซูเปอร์คอมพิวเตอร์ "Shiho" (紫峰) สำหรับการเกษตร</li>
+                        </ul>
+                    </div>
+                </div>
+
             </div>
         </div>
 
@@ -240,16 +297,57 @@
             </div>
         </div>
 
-        <!-- Place 3: Food & Cooking Workshops -->
+        <!-- Place 3: Aozora Kitchen Kids Food Education School -->
         <div class="card-shopifi">
+            <img src="images/aozora_kitchen_support.jpg" alt="บรรยากาศการทำอาหารสำหรับเด็กในโรงเรียน Aozora Kitchen (ภาพทางการ aozora-kitchen.com)" class="img-hero">
             <div class="card-body p-4 p-md-5">
-                <h2 class="fw-bold mb-3">3. Workshop ทำอาหาร & ขนมเชิงการเรียนรู้ (Family Cooking Workshop)</h2>
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <h2 class="fw-bold mb-0">3. Aozora Kitchen (青空キッチン - 子どものための食育教室)</h2>
+                    <div>
+                        <a href="https://aozora-kitchen.com/" target="_blank" class="btn-pill-aozora me-1"><i class="fa-solid fa-cookie-bite me-1"></i>Aozora Kitchen Official</a>
+                        <span class="tag-mint me-1">โรงเรียนโภชนาการเด็กอันดับ 1 ในญี่ปุ่น</span>
+                        <span class="tag-pistachio">พัฒนาประสาทสัมผัสทั้ง 5 🍳</span>
+                    </div>
+                </div>
+                <p class="text-muted mb-2"><i class="fa-solid fa-child-reaching me-1"></i> โรงเรียนสอนทำอาหารและโภชนาการสำหรับเด็กโดยเฉพาะ (Kids Food Education School)</p>
+                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> เว็บไซต์ทางการ: <a href="https://aozora-kitchen.com/" target="_blank" class="fw-bold text-dark">aozora-kitchen.com</a></p>
+
                 <hr class="my-4">
-                <p class="small mb-3">เสริมทักษะความสนุกด้านการประกอบอาหารให้น้องเติมเต็ม โดยเข้าร่วมเวิร์กชอปทำขนมจากแป้งข้าวอิบารากิ (Ibaraki Rice Flour Sweets) หรือทำเบเกอรี่สดใหม่</p>
-                <ul class="small mb-0">
-                    <li><strong>ศูนย์กิจกรรมที่แนะนำ:</strong> <em>Tokyo Gas Tsukuba Cooking Studio</em> หรือ <em>Aozora Kitchen Tsukuba</em> (青空キッチン つくばスクール)</li>
-                    <li><strong>งบประมาณ:</strong> ประมาณ <strong>800 – 2,500 เยนต่อคน</strong></li>
-                </ul>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <img src="images/aozora_kitchen_cooking.png" alt="料理実習 Cooking Practice" class="img-secondary mb-2">
+                        <h6 class="fw-bold text-dark mb-1">1. 料理実習 (Hands-on Cooking)</h6>
+                        <p class="small text-muted mb-0">ฝึกทำอาหารจริงเพื่อพัฒนาประสาทสัมผัสทั้ง 5 (五感), ความคิดสร้างสรรค์ และการช่วยเหลือตนเอง</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/aozora_kitchen_drill.png" alt="学習 Food Education Drill" class="img-secondary mb-2">
+                        <h6 class="fw-bold text-dark mb-1">2. 食育ドリル (Food Education Drill)</h6>
+                        <p class="small text-muted mb-0">แบบฝึกหัดโภชนาการเล่มแรกของญี่ปุ่น เรียนรู้สารอาหาร วัตถุดิบ และที่มาของอาหารอย่างธรรมชาติ</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="images/aozora_kitchen_level.png" alt="進級システム Level System" class="img-secondary mb-2">
+                        <h6 class="fw-bold text-dark mb-1">3. 進級システム (Level System)</h6>
+                        <p class="small text-muted mb-0">ระบบทดสอบวัดระดับทุก 3 เดือน ฝึกฝนระเบียบวินัยและสร้างความภาคภูมิใจเมื่อผ่านระดับชั้น</p>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-3">
+                    <div class="col-md-6">
+                        <img src="images/aozora_kitchen_kids1.jpg" alt="รอยยิ้มและความสนุกของเด็กๆ ในห้องเรียน Aozora Kitchen" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>บรรยากาศความสนุกและรอยยิ้มของเด็กๆ ขณะเรียนทำอาหาร (aozora-kitchen.com)</em></p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold mb-2"><i class="fa-solid fa-hat-chef me-2"></i>คุณครูผู้สอน & เวิร์กชอปครอบครัว</h5>
+                        <ul class="small mb-3">
+                            <li><strong>キッズ食育トレーナー:</strong> ทีมอาจารย์ผู้เชี่ยวชาญการสอนโภชนาการเด็กที่ได้รับใบอนุญาตโดยเฉพาะ</li>
+                            <li><strong>กิจกรรม Family Workshop:</strong> เวิร์กชอปครอบครัวทำขนมจากแป้งข้าวอิบารากิ (Ibaraki Rice Flour Sweets) หรือทำเบเกอรี่สดใหม่</li>
+                        </ul>
+                        <div class="p-3 rounded-3" style="background-color: var(--canvas-cream); border: 1px solid var(--hairline-light);">
+                            <p class="small mb-0"><strong>ศูนย์กิจกรรมใน Tsukuba:</strong> <em>Tokyo Gas Tsukuba Cooking Studio</em> หรือ <em>Aozora Kitchen Tsukuba School (青空キッチン つくばスクール)</em> (งบประมาณ 800 – 2,500 เยน/คน)</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

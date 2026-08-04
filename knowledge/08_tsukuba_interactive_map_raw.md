@@ -24,14 +24,14 @@
 - **พิกัด GPS:** `36.0560, 140.1350`
 - **ระยะทางจากสถานี:** 3.2 กม. (บัส 12 นาที)
 - **ที่อยู่:** 1-1-1 Higashi, Tsukuba-shi, Ibaraki 〒305-8567
-- **ภาพถ่าย:** `images/geological_museum.jpg`
+- **ภาพถ่าย:** `images/geological_museum_ta1.jpg`
 - **โมดูล:** 01_science_and_space.html
 
 ### 4. Science Square AIST (サイエンススクエア つくば)
 - **พิกัด GPS:** `36.0562, 140.1365`
 - **ระยะทางจากสถานี:** 3.3 กม. (บัส 12 นาที)
 - **ที่อยู่:** 1-1-1 Higashi, Tsukuba-shi, Ibaraki 〒305-8566
-- **ภาพถ่าย:** `images/science_square_aist.jpg`
+- **ภาพถ่าย:** `images/science_square_ta1.jpg`
 - **โมดูล:** 01_science_and_space.html
 
 ---
@@ -56,7 +56,7 @@
 - **พิกัด GPS:** `36.0420, 140.1250`
 - **ระยะทางจากสถานี:** 4.8 กม. (บัส 16 นาที)
 - **ที่อยู่:** Kannondai Area, Tsukuba-shi, Ibaraki
-- **ภาพถ่าย:** `images/naro_tarh_gallery1.jpg`
+- **ภาพถ่าย:** `images/naro_tarh_exterior.webp`
 - **โมดูล:** 02_food_science_and_farms.html
 
 ---
@@ -159,5 +159,5 @@
 - **พิกัด GPS:** `36.0827, 140.1112`
 - **ระยะทางจากสถานี:** 50 เมตร (ติดทางออก A3)
 - **ที่อยู่:** Azuma 1-chome, Tsukuba-shi, Ibaraki 〒305-0031
-- **ภาพถ่าย:** `images/tsukubus_nambu_shuttle.jpg`
+- **ภาพถ่าย:** `images/tsukuba_station.jpg`
 - **โมดูล:** 04_transport_and_logistics.html

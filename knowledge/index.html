@@ -3,324 +3,366 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tsukuba Trip Knowledge Portal - ศูนย์ข้อมูลยุทธศาสตร์ทซึคุบะ</title>
+    <title>Tsukuba Travel Portal - หน้าหลัก</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --canvas-night: #000000;
-            --canvas-night-elevated: #0a0a0a;
-            --canvas-light: #ffffff;
-            --canvas-cream: #fbfbf5;
-            --aloe-10: #c1fbd4;
-            --pistachio-10: #d4f9e0;
-            --ink: #000000;
-            --on-primary: #ffffff;
-            --shade-30: #d4d4d8;
-            --shade-40: #a1a1aa;
-            --shade-50: #71717a;
-            --hairline-light: #e4e4e7;
-            --hairline-dark: #1e2c31;
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --nav-bg: #0f172a;
+            --accent-science: #0284c7;
+            --accent-nature: #059669;
+            --accent-food: #ea580c;
+            --accent-hotel: #be123c;
+            --accent-map: #0d9488;
         }
+
         body {
             font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
-            font-feature-settings: "ss03";
-            background-color: var(--canvas-cream);
-            color: var(--ink);
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
         }
-        .navbar-shopifi {
-            background-color: var(--canvas-night);
-            border-bottom: 1px solid var(--hairline-dark);
-            padding: 1rem 0;
+
+        /* Navbar: Clean, Solid Dark */
+        .navbar-custom {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid #1e293b;
+            padding: 0.85rem 0;
         }
-        .navbar-shopifi .nav-link {
-            color: var(--shade-40);
-            font-size: 14px;
+        .navbar-custom .navbar-brand {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
+        }
+        .navbar-custom .nav-link {
+            color: #94a3b8;
+            font-size: 0.95rem;
             font-weight: 500;
-            transition: color 0.2s;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: color 0.15s ease, background-color 0.15s ease;
         }
-        .navbar-shopifi .nav-link:hover, .navbar-shopifi .nav-link.active {
-            color: var(--on-primary);
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
         }
-        .hero-cinematic {
-            background-color: var(--canvas-night);
-            color: var(--on-primary);
-            padding: 4.5rem 1rem;
-            border-bottom: 1px solid var(--hairline-dark);
+
+        /* Hero Header */
+        .hero-section {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 4rem 0 3.5rem;
+            border-bottom: 1px solid #1e293b;
         }
-        .hero-cinematic h1 {
-            font-weight: 300;
+        .hero-title {
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
             letter-spacing: -0.5px;
-            font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+            margin-bottom: 1rem;
         }
-        .hero-cinematic .lead {
-            color: var(--shade-40);
+        .hero-subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            max-width: 760px;
+            margin: 0 auto 2rem;
             font-weight: 400;
         }
-        .btn-pill-primary {
-            background-color: var(--ink);
-            color: var(--on-primary);
-            border-radius: 9999px;
-            padding: 10px 24px;
-            font-size: 14px;
-            font-weight: 500;
-            border: none;
-            text-decoration: none;
+        .hero-badge {
             display: inline-block;
-            transition: all 0.2s ease;
-        }
-        .btn-pill-primary:hover {
-            background-color: #3f3f46;
-            color: var(--on-primary);
-        }
-        .btn-pill-outline-dark {
-            background-color: transparent;
-            color: var(--on-primary);
-            border: 1.5px solid var(--on-primary);
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 9999px;
-            padding: 8px 22px;
-            font-size: 14px;
+            padding: 0.4rem 1.1rem;
+            font-size: 0.875rem;
             font-weight: 500;
-            text-decoration: none;
-            display: inline-block;
-            transition: all 0.2s ease;
+            margin: 0.25rem;
         }
-        .btn-pill-outline-dark:hover {
-            background-color: var(--on-primary);
-            color: var(--ink);
-        }
-        .btn-pill-aloe {
-            background-color: var(--aloe-10);
-            color: var(--ink);
-            border-radius: 9999px;
-            padding: 9px 20px;
-            font-weight: 600;
-            font-size: 13px;
-            border: none;
-            text-decoration: none;
-            display: inline-block;
-        }
-        .btn-pill-aloe:hover {
-            background-color: #a7f3d0;
-            color: var(--ink);
-        }
-        .tag-mint {
-            background-color: var(--aloe-10);
-            color: var(--ink);
-            border-radius: 9999px;
-            padding: 4px 12px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.3px;
-        }
-        .tag-pistachio {
-            background-color: var(--pistachio-10);
-            color: var(--ink);
-            border-radius: 9999px;
-            padding: 4px 12px;
-            font-size: 12px;
-            font-weight: 600;
-        }
-        .tag-shade {
-            background-color: var(--shade-30);
-            color: var(--ink);
-            border-radius: 9999px;
-            padding: 4px 12px;
-            font-size: 12px;
-            font-weight: 500;
-        }
-        .card-shopifi {
-            background-color: var(--canvas-light);
-            border: 1px solid var(--hairline-light);
-            border-radius: 16px;
-            box-shadow: 0 8px 12px rgba(0,0,0,0.03);
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            height: 100%;
+
+        /* Category Card (Static & Clean) */
+        .cat-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
             overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: border-color 0.15s ease;
         }
-        .card-shopifi:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 16px 24px rgba(0,0,0,0.08);
+        .cat-card:hover {
+            border-color: #cbd5e1;
         }
-        .card-img-custom {
+        .cat-card-img {
+            width: 100%;
             height: 200px;
             object-fit: cover;
-            width: 100%;
+        }
+        .cat-card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        .cat-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-uppercase: uppercase;
+            letter-spacing: 0.5px;
+            padding: 0.25rem 0.65rem;
+            border-radius: 4px;
+            margin-bottom: 0.75rem;
+        }
+        .tag-science { background-color: #e0f2fe; color: #0369a1; }
+        .tag-nature { background-color: #d1fae5; color: #047857; }
+        .tag-food { background-color: #ffedd5; color: #c2410c; }
+        .tag-hotel { background-color: #ffe4e6; color: #be123c; }
+        .tag-map { background-color: #ccfbf1; color: #0f766e; }
+
+        .cat-card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+        .cat-card-text {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.25rem;
+            flex-grow: 1;
+        }
+        .btn-view-cat {
+            background-color: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.6rem 1.2rem;
+            border-radius: 8px;
+            text-align: center;
+            transition: background-color 0.15s ease;
+        }
+        .btn-view-cat:hover {
+            background-color: #334155;
+            color: #ffffff;
+        }
+
+        /* Section Titles */
+        .section-header {
+            margin-bottom: 2rem;
+        }
+        .section-header h2 {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--text-main);
+            letter-spacing: -0.3px;
+        }
+        .section-header p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        /* Itinerary Timeline Card */
+        .itinerary-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .day-badge {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 6px;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid #1e293b;
         }
     </style>
 </head>
 <body>
 
-    <!-- Cinematic Navigation (Dark Track) -->
-    <nav class="navbar navbar-expand-lg navbar-dark navbar-shopifi sticky-top">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand fw-bold text-white fs-5" href="index.html">
-                <i class="fa-solid fa-compass me-2 text-white"></i>Tsukuba Knowledge Hub
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-compass me-2 text-primary"></i>Tsukuba Portal
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto gap-1">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link active" href="index.html">หน้าหลัก</a></li>
-                    <li class="nav-item"><a class="nav-link" href="01_science_and_space.html">อวกาศ & วิทยาศาสตร์</a></li>
-                    <li class="nav-item"><a class="nav-link" href="02_food_science_and_farms.html">Food Science & ฟาร์ม</a></li>
-                    <li class="nav-item"><a class="nav-link" href="03_scenic_nature_and_relax.html">ธรรมชาติ & พักผ่อน</a></li>
-                    <li class="nav-item"><a class="nav-link" href="04_transport_and_logistics.html">การเดินทาง & Pass</a></li>
-                    <li class="nav-item"><a class="nav-link" href="05_hotels_and_dining.html">ที่พัก & ร้านอาหาร</a></li>
-                    <li class="nav-item"><a class="nav-link" href="07_mount_tsukuba_special_guide.html">เขาทซึคุบะ</a></li>
-                    <li class="nav-item"><a class="nav-link fw-bold text-success" href="08_tsukuba_interactive_map.html">🗺️ แผนที่พิกัดรวม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="science.html">Science</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nature.html">Nature</a></li>
+                    <li class="nav-item"><a class="nav-link" href="food.html">Food</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hotel.html">Hotel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Header (Cinematic Dark Track) -->
-    <header class="hero-cinematic text-center">
+    <!-- Hero Header -->
+    <header class="hero-section text-center">
         <div class="container">
-            <span class="tag-mint text-uppercase mb-3 d-inline-block">Dec 24–27, 2026</span>
-            <h1 class="display-4 fw-light mb-3 text-white">Tsukuba Trip Research Portal</h1>
-            <p class="lead mb-4 mx-auto" style="max-width: 750px;">รายงานยุทธศาสตร์และระบบคลังข้อมูลการศึกษาดูงานการท่องเที่ยวนวัตกรรม เมืองวิทยาศาสตร์สึกุบะ สำหรับครอบครัวคุณ Bank</p>
+            <span class="hero-badge mb-3"><i class="fa-solid fa-calendar-days me-1"></i> Dec 24–27, 2026</span>
+            <h1 class="hero-title">Tsukuba Travel & Knowledge Hub</h1>
+            <p class="hero-subtitle">คู่มือยุทธศาสตร์ท่องเที่ยวและสำรวจเมืองวิทยาศาสตร์สึกุบะ (Tsukuba Science City) ประเทศญี่ปุ่น ออกแบบสมบูรณ์แบบเพื่อการเดินทางของครอบครัว</p>
             <div class="d-flex justify-content-center gap-2 flex-wrap">
-                <span class="btn-pill-outline-dark"><i class="fa-solid fa-users me-1"></i> สมาชิก 3 คน (Bank, แก้ว, เติมเต็ม)</span>
-                <span class="btn-pill-outline-dark"><i class="fa-solid fa-bus me-1"></i> ขนส่งสาธารณะ 100% (TX + Bus)</span>
-                <a href="06_itinerary_and_strategy.html" class="btn-pill-aloe"><i class="fa-solid fa-calendar-days me-1"></i> ดูแผนเดินทางรายวัน</a>
+                <span class="hero-badge"><i class="fa-solid fa-users me-1"></i> ครอบครัว 3 คน (Bank, แก้ว, เติมเต็ม)</span>
+                <span class="hero-badge"><i class="fa-solid fa-train me-1"></i> รถไฟฟ้า TX & บัส 100%</span>
+                <span class="hero-badge"><i class="fa-solid fa-snowflake me-1"></i> อุณหภูมิ 2°C - 10°C</span>
             </div>
         </div>
     </header>
 
-    <!-- Main Content Hub (Transactional Light Track) -->
+    <!-- Main Content -->
     <main class="container my-5">
 
-        <!-- 6 Key Modules Navigation Grid -->
-        <h3 class="fw-bold mb-4"><i class="fa-solid fa-folder-open me-2"></i>คลังข้อมูลวิจัย & ยุทธศาสตร์การท่องเที่ยว (Research Modules)</h3>
-        
-        <div class="row g-4">
-            <!-- Module 1 -->
+        <!-- Category Grid Section -->
+        <div class="section-header">
+            <h2><i class="fa-solid fa-layer-group me-2 text-primary"></i>หมวดหมู่ข้อมูลการท่องเที่ยว</h2>
+            <p>รวบรวมข้อมูลสถานที่ท่องเที่ยว ร้านอาหาร ที่พัก และการเดินทางแยกตาม 5 หมวดหมู่หลัก</p>
+        </div>
+
+        <div class="row g-4 mb-5">
+
+            <!-- Category 1: Science -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-shopifi">
-                    <img src="images/jaxa_tsukuba_space_center_ta1.jpg" alt="จรวด H-II และนิทรรศการ JAXA Tsukuba Space Center (ภาพจริง Tripadvisor)" class="card-img-custom">
-                    <div class="card-body p-4 d-flex flex-column">
-                        <span class="tag-mint align-self-start mb-2">อวกาศ & หุ่นยนต์</span>
-                        <h5 class="fw-bold">01. อวกาศ & วิทยาศาสตร์</h5>
-                        <p class="text-muted small">JAXA Tsukuba Space Center (จรวด H-II, โมเดล Kibo ISS), Tsukuba Expo Center, Geological Museum และ Science Square AIST</p>
-                        <div class="d-flex gap-2 mt-auto pt-2">
-                            <a href="01_science_and_space.html" class="btn-pill-primary text-center flex-grow-1">ดูเว็บ HTML</a>
-                            <a href="01_science_and_space_raw.md" class="btn-pill-outline-light"><i class="fa-solid fa-file-lines me-1"></i>Raw MD</a>
-                        </div>
+                <div class="cat-card">
+                    <img src="images/jaxa_tsukuba_space_center_ta1.jpg" alt="JAXA Tsukuba Space Center" class="cat-card-img">
+                    <div class="cat-card-body">
+                        <span class="cat-tag tag-science">Science & Innovation</span>
+                        <h3 class="cat-card-title">Science</h3>
+                        <p class="cat-card-text">รวมศูนย์อวกาศ JAXA, Tsukuba Botanical Garden (สวนพฤกษศาสตร์), Tsukuba Expo Center, Geological Museum, Science Square และ NARO Food Research</p>
+                        <a href="science.html" class="btn-view-cat">เข้าชมหมวด Science <i class="fa-solid fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Module 2 -->
+            <!-- Category 2: Nature -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-shopifi">
-                    <img src="images/naro_food_research.jpg" alt="ห้องจัดแสดงงานวิจัยวิทยาศาสตร์อาหารและการเกษตรอัจฉริยะ NARO" class="card-img-custom">
-                    <div class="card-body p-4 d-flex flex-column">
-                        <span class="tag-pistachio align-self-start mb-2">Food Science & ฟาร์ม</span>
-                        <h5 class="fw-bold">02. Food Science & ฟาร์ม</h5>
-                        <p class="text-muted small">NARO Food Museum (พิพิธภัณฑ์การวิจัยอาหารและเกษตรอัจฉริยะ), ฟาร์มสตรอเบอร์รี่สดเรือนกระจก และ Cooking Workshop</p>
-                        <div class="d-flex gap-2 mt-auto pt-2">
-                            <a href="02_food_science_and_farms.html" class="btn-pill-primary text-center flex-grow-1">ดูเว็บ HTML</a>
-                            <a href="02_food_science_and_farms_raw.md" class="btn-pill-outline-light"><i class="fa-solid fa-file-lines me-1"></i>Raw MD</a>
-                        </div>
+                <div class="cat-card">
+                    <img src="images/tsukubasan_shrine_real.jpg" alt="Mount Tsukuba" class="cat-card-img">
+                    <div class="cat-card-body">
+                        <span class="cat-tag tag-nature">Scenic & Culture</span>
+                        <h3 class="cat-card-title">Nature</h3>
+                        <p class="cat-card-text">รวมสถานที่ท่องเที่ยวธรรมชาติสวยงาม เขาทซึคุบะ (Mount Tsukuba), Cable Car & Ropeway, ศาลเจ้าสึคุบะซัน, Tsukuba Center Building และสวนโดโฮ</p>
+                        <a href="nature.html" class="btn-view-cat">เข้าชมหมวด Nature <i class="fa-solid fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Module 3 -->
+            <!-- Category 3: Food -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-shopifi">
-                    <img src="images/mt_tsukuba_ta1.jpg" alt="ทัศนียภาพเขาทซึคุบะ (ภาพจริง Tripadvisor CDN)" class="card-img-custom">
-                    <div class="card-body p-4 d-flex flex-column">
-                        <span class="tag-shade align-self-start mb-2">ธรรมชาติ & สถาปัตยกรรม</span>
-                        <h5 class="card-title fw-bold">03. ธรรมชาติ & พักผ่อน</h5>
-                        <p class="text-muted small">เขาทซึคุบะ (#1 ใน Tsukuba), Tsukuba Botanical Garden, Tsukuba Center Building (Arata Isozaki) และสวนสาธารณะโดโฮ</p>
-                        <div class="d-flex gap-2 mt-auto pt-2">
-                            <a href="03_scenic_nature_and_relax.html" class="btn-pill-primary text-center flex-grow-1">ดูเว็บ HTML</a>
-                            <a href="03_scenic_nature_and_relax_raw.md" class="btn-pill-outline-light"><i class="fa-solid fa-file-lines me-1"></i>Raw MD</a>
-                        </div>
+                <div class="cat-card">
+                    <img src="images/ramen_tatsuro_ta1.jpg" alt="Ramen Tatsuro" class="cat-card-img">
+                    <div class="cat-card-body">
+                        <span class="cat-tag tag-food">Dining & Farm</span>
+                        <h3 class="cat-card-title">Food</h3>
+                        <p class="cat-card-text">รวมที่กินยอดฮิต ร้าน Ramen Tatsuro (Miso Jiro), สเต๊กเนื้อวัวฮิตาจิ, โซบะทำมือ, Kawarakeya Strawberry Farm บุฟเฟต์สตรอเบอร์รี่สด และเวิร์กชอปทำอาหาร</p>
+                        <a href="food.html" class="btn-view-cat">เข้าชมหมวด Food <i class="fa-solid fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Module 4 -->
+            <!-- Category 4: Hotel -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-shopifi">
-                    <img src="images/tsukuba_express_train.jpg" alt="รถไฟด่วน Tsukuba Express (TX) เชื่อมต่อตรงจากโตเกียวถึงทซึคุบะ" class="card-img-custom">
-                    <div class="card-body p-4 d-flex flex-column">
-                        <span class="tag-shade align-self-start mb-2">การเดินทาง & Pass</span>
-                        <h5 class="card-title fw-bold">04. การเดินทาง & Pass</h5>
-                        <p class="text-muted small">Tsukuba Express (TX Rapid 45 นาที), ตารางรถบัส Tsukbus (Nambu / Oda Shuttle), Airport Highway Bus และ Mt. Tsukuba Ticket</p>
-                        <div class="d-flex gap-2 mt-auto pt-2">
-                            <a href="04_transport_and_logistics.html" class="btn-pill-primary text-center flex-grow-1">ดูเว็บ HTML</a>
-                            <a href="04_transport_and_logistics_raw.md" class="btn-pill-outline-light"><i class="fa-solid fa-file-lines me-1"></i>Raw MD</a>
-                        </div>
+                <div class="cat-card">
+                    <img src="images/daiwa_roynet_tsukuba_real.jpg" alt="Daiwa Roynet Hotel Tsukuba" class="cat-card-img">
+                    <div class="cat-card-body">
+                        <span class="cat-tag tag-hotel">Accommodations</span>
+                        <h3 class="cat-card-title">Hotel</h3>
+                        <p class="cat-card-text">รวมที่พักทั้งหมดในทซึคุบะ โรงแรมติดสถานี Daiwa Roynet, Hotel Nikko, เรียวกังออนเซ็น Tsukubasan Edoya และตารางเปรียบเทียบที่พักสำหรับครอบครัว</p>
+                        <a href="hotel.html" class="btn-view-cat">เข้าชมหมวด Hotel <i class="fa-solid fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Module 5 -->
+            <!-- Category 5: Map -->
             <div class="col-md-6 col-lg-4">
-                <div class="card-shopifi">
-                    <img src="images/ramen_tatsuro_ta1.jpg" alt="ชามราเมนจิโร่ยักษ์ ร้าน Ramen Tatsuro (ภาพจริง Tripadvisor CDN)" class="card-img-custom">
-                    <div class="card-body p-4 d-flex flex-column">
-                        <span class="tag-shade align-self-start mb-2">ที่พัก & ร้านอาหาร</span>
-                        <h5 class="card-title fw-bold">05. ที่พัก & ร้านอาหาร</h5>
-                        <p class="text-muted small">โรงแรมสะอาด ปลอดภัย ติดสถานี (Daiwa Roynet, Hotel Nikko), ร้าน **Ramen Tatsuro** (Miso Double Ramen), Hitachi Beef & Tsukuba Pork</p>
-                        <div class="d-flex gap-2 mt-auto pt-2">
-                            <a href="05_hotels_and_dining.html" class="btn-pill-primary text-center flex-grow-1">ดูเว็บ HTML</a>
-                            <a href="05_hotels_and_dining_raw.md" class="btn-pill-outline-light"><i class="fa-solid fa-file-lines me-1"></i>Raw MD</a>
-                        </div>
+                <div class="cat-card">
+                    <img src="images/tsukuba_express_train.jpg" alt="Tsukuba Express & Map" class="cat-card-img">
+                    <div class="cat-card-body">
+                        <span class="cat-tag tag-map">Interactive Map & Transport</span>
+                        <h3 class="cat-card-title">Map</h3>
+                        <p class="cat-card-text">แผนที่แบบโต้ตอบ (OpenStreetMap Leaflet.js) ปักหมุด GPS 20 จุดสำคัญ พร้อมคู่มือการเดินทาง รถไฟ Tsukuba Express (TX), ตารางบัส Tsukbus และตั๋วพิเศษ Pass</p>
+                        <a href="map.html" class="btn-view-cat">เปิดแผนที่ & การเดินทาง <i class="fa-solid fa-arrow-right ms-1"></i></a>
                     </div>
                 </div>
             </div>
 
-            <!-- Module 6 (Itinerary & Strategy) -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card-shopifi style-featured" style="border: 2px solid var(--aloe-10);">
-                    <img src="images/tsukuba_center_building.jpg" alt="Tsukuba Center Building สถาปัตยกรรม Arata Isozaki" class="card-img-custom">
-                    <div class="card-body p-4 d-flex flex-column" style="background-color: #f4fbf6;">
-                        <span class="tag-mint align-self-start mb-2">แผนรวมบูรณาการ</span>
-                        <h5 class="fw-bold">06. แผนเดินทางรายวัน 24-27 ธ.ค.</h5>
-                        <p class="text-muted small">ตารางเดินทาง 4 วัน 3 คืน เจาะลึกเวลาเดินทาง ตารางบัส การจองล่วงหน้า การเตรียมตัวสภาพอากาศ 2°C - 10°C และบัตร IC Card</p>
-                        <div class="d-flex gap-2 mt-auto pt-2">
-                            <a href="06_itinerary_and_strategy.html" class="btn-pill-aloe text-center flex-grow-1">ดูแผนรายวัน HTML</a>
-                            <a href="../Research/research.md" class="btn-pill-outline-light"><i class="fa-solid fa-file-lines me-1"></i>Research MD</a>
-                        </div>
-                    </div>
-                </div>
+        </div>
+
+        <!-- 4-Day Strategy Overview Section -->
+        <div id="itinerary" class="pt-3">
+            <div class="section-header">
+                <h2><i class="fa-solid fa-route me-2 text-success"></i>แผนเดินทางรายวัน (4-Day Strategy Itinerary)</h2>
+                <p>สรุปตารางการท่องเที่ยว 4 วัน 3 คืน เจาะลึกเวลาเดินทางและสถานที่สำคัญ</p>
             </div>
 
-            <!-- Module 07 (Special Page: Mount Tsukuba MATCHA Guide) -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card-shopifi style-featured" style="border: 2px solid #0d8a4a;">
-                    <img src="images/tsukubasan_shrine_real.jpg" alt="ยอดเขาสึคุบะ และศาลเจ้าชินโต (MATCHA Official Guide)" class="card-img-custom">
-                    <div class="card-body p-4 d-flex flex-column" style="background-color: #e8fbf0;">
-                        <span class="tag-mint align-self-start mb-2">⭐ คู่มือพิเศษ MATCHA</span>
-                        <h5 class="fw-bold text-success">07. หน้าพิเศษ: ท่องเที่ยวเขาสึคุบะ</h5>
-                        <p class="text-muted small">คู่มือเจาะลึก 4 ขั้นตอนขึ้นยอดเขาจากโตเกียว, ตั๋ว Tsukubasan Story Ticket, ศาลเจ้าชินโตความรักสามีภรรยา, จุดชมวิว 360° และเวลารถบัสขากลับ 17:10 น.</p>
-                        <div class="d-flex gap-2 mt-auto pt-2">
-                            <a href="07_mount_tsukuba_special_guide.html" class="btn-pill-aloe text-center flex-grow-1" style="background-color: #0d8a4a; color: white;">ดูหน้าพิเศษ HTML</a>
-                            <a href="07_mount_tsukuba_special_guide_raw.md" class="btn-pill-outline-light"><i class="fa-solid fa-file-lines me-1"></i>Raw MD</a>
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <div class="itinerary-card">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="day-badge">Day 1 • 24 ธ.ค. 2026</span>
+                            <span class="badge bg-light text-dark border">อวกาศ & เช็กอินเมือง</span>
                         </div>
+                        <h5 class="fw-bold mb-2">เดินทางจากโตเกียว & ตะลุย JAXA Space Center</h5>
+                        <p class="text-muted small mb-0">นั่ง Tsukuba Express (TX) Rapid 45 นาทีลง Tsukuba Station เช็กอินกระเป๋าที่ Daiwa Roynet Hotel จากนั้นนั่งบัสไป JAXA Tsukuba Space Center ชมจรวด H-II และกลับมามื้อค่ำที่ร้านราเมนยักษ์ Ramen Tatsuro</p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Module 08 (Interactive Master Map) -->
-            <div class="col-md-6 col-lg-4">
-                <div class="card-shopifi style-featured" style="border: 2px solid #0284c7;">
-                    <img src="images/tsukuba_center_building_real.jpg" alt="แผนที่พิกัดรวม 20 จุดเมืองทซึคุบะ" class="card-img-custom">
-                    <div class="card-body p-4 d-flex flex-column" style="background-color: #f0f9ff;">
-                        <span class="tag-cat cat-space align-self-start mb-2">🗺️ Interactive OpenStreetMap</span>
-                        <h5 class="fw-bold text-primary">08. แผนที่พิกัดรวม 20 จุด</h5>
-                        <p class="text-muted small">แผนที่แบบโต้ตอบ (Leaflet.js) ปักหมุด GPS ทั้ง 20 พิกัดท่องเที่ยว ที่พัก ร้านอาหาร ฟาร์มสตรอเบอร์รี่ และสถานีขนส่ง พร้อมตัวกรองหมวดหมู่</p>
-                        <div class="d-flex gap-2 mt-auto pt-2">
-                            <a href="08_tsukuba_interactive_map.html" class="btn-pill-primary text-center flex-grow-1" style="background-color: #0284c7;">เปิดแผนที่ HTML</a>
-                            <a href="08_tsukuba_interactive_map_raw.md" class="btn-pill-outline-light"><i class="fa-solid fa-file-lines me-1"></i>Raw MD</a>
+                <div class="col-md-6">
+                    <div class="itinerary-card">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="day-badge">Day 2 • 25 ธ.ค. 2026</span>
+                            <span class="badge bg-light text-dark border">ภูเขา & ออนเซ็น</span>
                         </div>
+                        <h5 class="fw-bold mb-2">ท่องเขาสึคุบะ (Mount Tsukuba Special Guide)</h5>
+                        <p class="text-muted small mb-0">ใช้ตั๋ว Tsukubasan Story Ticket นั่งบัสไปศาลเจ้า Tsukubasan Shrine ขึ้น Cable Car ชมยอดเขานันไท ทานซุปโซบะร้อนและกาแฟ 877Stand ต่อด้วย Ropeway ลงมาแช่ออนเซ็นธรรมชาติที่ Tsukubasan Edoya Ryokan</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="itinerary-card">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="day-badge">Day 3 • 26 ธ.ค. 2026</span>
+                            <span class="badge bg-light text-dark border">ฟาร์มสด & พฤกษศาสตร์</span>
+                        </div>
+                        <h5 class="fw-bold mb-2">สตรอเบอร์รี่สด & Tsukuba Botanical Garden</h5>
+                        <p class="text-muted small mb-0">นั่ง Tsukbus สาย Nambu Shuttle ไป Kawarakeya Strawberry Farm บุฟเฟต์เก็บสตรอเบอร์รี่สดและให้อาหารน้องแพะ จากนั้นช่วงบ่ายเดินชมเรือนกระจกที่ Tsukuba Botanical Garden และพักผ่อนสวนโดโฮ</p>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="itinerary-card">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="day-badge">Day 4 • 27 ธ.ค. 2026</span>
+                            <span class="badge bg-light text-dark border">วิทยาศาสตร์เด็ก & กลับโตเกียว</span>
+                        </div>
+                        <h5 class="fw-bold mb-2">Tsukuba Expo Center & เดินทางกลับ</h5>
+                        <p class="text-muted small mb-0">ชมท้องฟ้าจำลองและนิทรรศการหุ่นยนต์ที่ Tsukuba Expo Center (เดิน 5 นาทีจากสถานี) ทานมื้อเที่ยงสเต๊กเนื้อวัวฮิตาจิที่ศูนย์การค้า BiVi ก่อนเดินทางกลับโตเกียวโดย Tsukuba Express</p>
                     </div>
                 </div>
             </div>
@@ -328,9 +370,10 @@
 
     </main>
 
-    <footer class="text-white py-4 mt-5" style="background-color: var(--canvas-night);">
-        <div class="container text-center">
-            <p class="mb-0 small text-muted">&copy; 2026 Tsukuba Research Knowledge Portal - Prepared for Bank & Family (Designed according to SHOPiFi Design System)</p>
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Tsukuba Travel Portal — Designed for Bank & Family Trip</p>
         </div>
     </footer>
 

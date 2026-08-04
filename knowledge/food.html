@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food - รวมที่กินและฟาร์มทซึคุบะ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --nav-bg: #0f172a;
+            --accent-food: #ea580c;
+        }
+
+        body {
+            font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid #1e293b;
+            padding: 0.85rem 0;
+        }
+        .navbar-custom .navbar-brand {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
+        }
+        .navbar-custom .nav-link {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: color 0.15s ease, background-color 0.15s ease;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 3.5rem 0 3rem;
+            border-bottom: 1px solid #1e293b;
+        }
+        .page-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .page-subtitle {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Detail Cards */
+        .detail-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .detail-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+        .detail-body {
+            padding: 1.75rem;
+        }
+        .tag-badge {
+            display: inline-block;
+            background-color: #ffedd5;
+            color: #c2410c;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+        }
+        .spot-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .meta-grid {
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+        }
+        .meta-item {
+            margin-bottom: 0.4rem;
+        }
+        .meta-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn-link-out {
+            display: inline-block;
+            background-color: #f8fafc;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            transition: background-color 0.15s ease;
+        }
+        .btn-link-out:hover {
+            background-color: #e2e8f0;
+            color: #0f172a;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-compass me-2 text-primary"></i>Tsukuba Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="science.html">Science</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nature.html">Nature</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="food.html">Food</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hotel.html">Hotel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header text-center">
+        <div class="container">
+            <h1 class="page-title"><i class="fa-solid fa-utensils me-2 text-warning"></i>Food & Culinary</h1>
+            <p class="page-subtitle">ลิ้มลองความอร่อยแห่งเมืองทซึคุบะ ราเมนชามยักษ์ สดใหม่จากฟาร์มสตรอเบอร์รี่ เนื้อวัวฮิตาจิพรีเมียม และคาเฟ่ท้องถิ่น</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+
+        <!-- 1. Ramen Tatsuro -->
+        <div id="ramen" class="detail-card">
+            <img src="images/ramen_tatsuro_ta1.jpg" alt="Ramen Tatsuro Miso Double" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-bowl-food me-1"></i> ร้านราเมนอันดับ 1 ของทซึคุบะ</span>
+                <h2 class="spot-title">1. ร้าน Ramen Tatsuro (ラーメン龍郎)</h2>
+                <p>ร้านราเมนสไตล์ Jiro-inspired ยอดฮิตที่สุดในเมืองทซึคุบะ โดดเด่นด้วย Miso Ramen เข้มข้น หมูชาชูชิ้นหนาพิเศษนุ่มละลายในปาก ผักกะหล่ำปลีและถั่วงอกพูนชาม น้ำซุปกระดูกหมูหอมกลมกล่อม สามารถเลือกปรับปริมาณกระเทียมและไขมันซุปได้ฟรี</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-clock me-2"></i>เวลาทำการ:</strong> 11:30 – 14:30 น. และ 17:30 – 21:30 น. (เปิดทุกวัน)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-yen-sign me-2"></i>ช่วงราคา:</strong> 850 – 1,200 เยนต่อชาม</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-person-walking me-2"></i>การเดินทาง:</strong> เดิน 8 นาที (725 เมตร) จากสถานี Tsukuba Station ทางออก A5</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://tabelog.com/ibaraki/A0802/A080201/8013147/" target="_blank" class="btn-link-out"><i class="fa-solid fa-utensils me-1"></i>รีวิวบน Tabelog</a>
+                    <a href="https://maps.google.com/?q=Ramen+Tatsuro+Tsukuba" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Hitachi Beef & Tsukuba Pork -->
+        <div id="hitachi-beef" class="detail-card">
+            <img src="images/tsukuba_center_building.jpg" alt="BiVi Tsukuba Dining Complex" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-drumstick-bite me-1"></i> วัวฮิตาจิ & หมูทซึคุบะ local</span>
+                <h2 class="spot-title">2. เนื้อวัวฮิตาจิ (Hitachi Beef) & หมูทซึคุบะ (Tsukuba Pork)</h2>
+                <p>สัมผัสรสชาติเนื้อวัววากิวเกรดพรีเมียมประจำจังหวัดอิบารากิ "Hitachi Beef" ลายหินอ่อนละมุนนุ่ม ลิ้มลองได้ในรูปแบบสเต๊ก สุกี้ยากี้ หรือยากินิคุ รวมถึงเนื้อหมู Local Tsukuba Pork ไร้กลิ่นคาว เสิร์ฟในคอมเพล็กซ์ BiVi Tsukuba ติดสถานีรถไฟ</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-location-dot me-2"></i>พิกัดร้านแนะนำ:</strong> BiVi Tsukuba ชั้น 2-3 (ติดสถานี Tsukuba Exit A3)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-yen-sign me-2"></i>ช่วงราคา:</strong> มื้อเที่ยง 1,500 – 2,800 เยน / มื้อค่ำ 3,500 – 6,000 เยน</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://maps.google.com/?q=BiVi+Tsukuba" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Kawarakeya Strawberry Farm -->
+        <div id="strawberry" class="detail-card">
+            <img src="images/kawarakeya_strawberry_1.jpg" alt="Kawarakeya Strawberry Farm" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-strawberry me-1"></i> บุฟเฟต์สตรอเบอร์รี่สด 45 นาที</span>
+                <h2 class="spot-title">3. Kawarakeya Strawberry Farm (かわらけや いちご狩り)</h2>
+                <p>ฟาร์มสตรอเบอร์รี่เรือนกระจกยกระดับความสูง (Elevated Hydroponics) สดสะอาด ไม่ต้องก้มเก็บ ทานสดๆ ไม่จำกัดปริมาณพร้อมนมข้นหวาน 45 นาที ไฮไลต์น่ารักสำหรับเด็กๆ คือโซนเลี้ยงและให้อาหารน้องแพะตัวน้อย 🐐</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-clock me-2"></i>ฤดูกาลเปิดให้บริการ:</strong> ธันวาคม – พฤษภาคม (เวลา 10:00 – 15:30 น.)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-ticket me-2"></i>ค่าบริการบุฟเฟต์:</strong> ผู้ใหญ่ 2,000 – 2,300 เยน / เด็ก 1,500 เยน / เด็กเล็กต่ำกว่า 3 ขวบ ฟรี!</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-bus me-2"></i>การเดินทาง:</strong> นั่ง Tsukbus สาย Nambu Shuttle ลงป้าย "Kawarakeya-mae" (20 นาทีจากสถานี)</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://www.jalan.net/kankou/spt_guide000000212700/" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>จองผ่าน Jalan.net Official</a>
+                    <a href="https://maps.google.com/?q=Kawarakeya+Strawberry+Farm" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Soba Shin Ida & Mountain Dining -->
+        <div id="soba" class="detail-card">
+            <img src="images/soba_shin_ida_duck.webp" alt="Soba Shin Ida Handcrafted Soba" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-wheat-awn me-1"></i> โซบะทำมือ & อาหารเชิงเขา</span>
+                <h2 class="spot-title">4. Soba Shin Ida (蕎麦 Shin 飯田) & เมนูเชิงเขา</h2>
+                <p>ร้านโซบะทำมือระดับตำนานเชิงเขาสึคุบะ นวดและสไลซ์เส้นโซบะสดวันต่อวัน เสิร์ฟพร้อมน้ำซุปร้อนและเป็ดปิ้งย่างหอมเตาถ่าน นอกจากนี้บริเวณจุดพักยอดเขายังมีร้าน 877Stand เสิร์ฟกาแฟลาเต้ ซอฟต์เสิร์ฟนมสด และอุดอนผักเขา (Sansai Udon)</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-clock me-2"></i>เวลาทำการ Soba Shin Ida:</strong> 11:00 – 15:00 น. (ปิดวันพุธ)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-yen-sign me-2"></i>ช่วงราคา:</strong> 1,100 – 1,800 เยน</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://maps.google.com/?q=Soba+Shin+Ida+Tsukuba" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Aozora Kitchen -->
+        <div id="aozora" class="detail-card">
+            <img src="images/aozora_kitchen_kids1.jpg" alt="Aozora Kitchen Cooking Workshop" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-cookie-bite me-1"></i> เวิร์กชอปทำอาหารสำหรับเด็ก</span>
+                <h2 class="spot-title">5. Aozora Kitchen (青空キッチン)</h2>
+                <p>สถาบันโภชนาการและเวิร์กชอปทำอาหารสำหรับเด็ก ออกแบบให้เด็กๆ สนุกกับการลงมือเตรียมวัตถุดิบ เรียนรู้คุณค่าสารอาหาร และปรุงอาหารทานเองร่วมกับครอบครัว</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-users me-2"></i>เหมาะสำหรับ:</strong> เด็กอายุ 3 – 12 ปี และครอบครัว</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://aozora-kitchen.com/" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>เว็บไซต์ Aozora Kitchen Official</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Tsukuba Travel Portal — Food & Culinary Section</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

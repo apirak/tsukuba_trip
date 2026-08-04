@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature - สถานที่ท่องเที่ยวสวยงามทซึคุบะ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --nav-bg: #0f172a;
+            --accent-nature: #059669;
+        }
+
+        body {
+            font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid #1e293b;
+            padding: 0.85rem 0;
+        }
+        .navbar-custom .navbar-brand {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
+        }
+        .navbar-custom .nav-link {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: color 0.15s ease, background-color 0.15s ease;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 3.5rem 0 3rem;
+            border-bottom: 1px solid #1e293b;
+        }
+        .page-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .page-subtitle {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Detail Cards */
+        .detail-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .detail-img {
+            width: 100%;
+            height: 340px;
+            object-fit: cover;
+        }
+        .detail-body {
+            padding: 1.75rem;
+        }
+        .tag-badge {
+            display: inline-block;
+            background-color: #d1fae5;
+            color: #047857;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+        }
+        .spot-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .meta-grid {
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+        }
+        .meta-item {
+            margin-bottom: 0.4rem;
+        }
+        .meta-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn-link-out {
+            display: inline-block;
+            background-color: #f8fafc;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            transition: background-color 0.15s ease;
+        }
+        .btn-link-out:hover {
+            background-color: #e2e8f0;
+            color: #0f172a;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-compass me-2 text-primary"></i>Tsukuba Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="science.html">Science</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="nature.html">Nature</a></li>
+                    <li class="nav-item"><a class="nav-link" href="food.html">Food</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hotel.html">Hotel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header text-center">
+        <div class="container">
+            <h1 class="page-title"><i class="fa-solid fa-tree me-2 text-success"></i>Nature & Scenic Spots</h1>
+            <p class="page-subtitle">สัมผัสธรรมชาติอันงดงามของเขาสึคุบะ ยอดเขาแฝดระดับตำนาน สวนสาธารณะร่มรื่น และสถาปัตยกรรมระดับโลก</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+
+        <!-- 1. Mount Tsukuba -->
+        <div id="tsukubasan" class="detail-card">
+            <img src="images/mt_tsukuba_ta1.jpg" alt="Mount Tsukuba Scenic View" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-mountain me-1"></i> 1 ใน 100 ภูเขาชื่อดังแห่งญี่ปุ่น</span>
+                <h2 class="spot-title">1. เขาทซึคุบะ (Mount Tsukuba - 筑波山)</h2>
+                <p>ภูเขาสูง 877 เมตรที่งดงามและโดดเด่นประจำจังหวัดอิบารากิ ได้รับฉายา "ภูเขาแห่งโชคลาภสีม่วง" (Shihou) ประกอบด้วย 2 ยอดเขาแฝด ได้แก่ ยอดเขานันไท (Nantai 871m) และยอดเขานิโยว์ไท (Nyotai 877m) นักท่องเที่ยวสามารถขึ้นสู่ยอดเขาอย่างสะดวกสบายด้วย Cable Car (รถไฟไต่เขา Swiss-made) และ Ropeway (กระเช้าลอยฟ้า 360°)</p>
+                
+                <div class="row g-3 my-2">
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded border">
+                            <h6 class="fw-bold mb-1"><i class="fa-solid fa-train-subway me-2 text-success"></i>Mount Tsukuba Cable Car</h6>
+                            <p class="small text-muted mb-0">วิ่งจากสถานี Miyawaki ถึงสถานี Miyukigahara (ยอดเขานันไท) ใช้เวลาเพียง 8 นาที ระยะทาง 1.6 กม.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="p-3 bg-light rounded border">
+                            <h6 class="fw-bold mb-1"><i class="fa-solid fa-cable-car me-2 text-success"></i>Mount Tsukuba Ropeway</h6>
+                            <p class="small text-muted mb-0">วิ่งจากสถานี Tsutsujigaoka ถึงสถานี Nyotai-san (ยอดเขานิโยว์ไท) ใช้เวลา 6 นาที ชมทัศนียภาพที่ราบคันโตไกลถึงโตเกียว</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-clock me-2"></i>เวลาทำการกระเช้า:</strong> 09:00 – 16:40 น. (ตารางอาจปรับเปลี่ยนตามฤดูกาลและสภาพอากาศ)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-ticket me-2"></i>ค่าโดยสารกระเช้า:</strong> เที่ยวเดียว 590 – 630 เยน / ไป-กลับ 1,070 – 1,120 เยน (แนะนำใช้ Tsukubasan Story Ticket)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-bus me-2"></i>การเดินทาง:</strong> นั่งรถบัส direct shuttle จาก Tsukuba Bus Terminal (ป้าย No. 1) ลงที่ Tsukubasan-jinja-guchi (36 นาที)</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://www.mt-tsukuba.com/" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>เว็บไซต์ Mount Tsukuba Official</a>
+                    <a href="https://maps.google.com/?q=Mount+Tsukuba" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Tsukubasan Shrine -->
+        <div id="shrine" class="detail-card">
+            <img src="images/mt_tsukuba_shrine_gate.jpg" alt="Tsukubasan Shrine Gate" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-torii-gate me-1"></i> ศาลเจ้าโบราณ & ความรักสมรส</span>
+                <h2 class="spot-title">2. ศาลเจ้าสึคุบะซัน (Tsukubasan Shrine - 筑波山神社)</h2>
+                <p>ศาลเจ้าชินโตประวัติศาสตร์ยาวนานกว่า 3,000 ปี ตั้งอยู่เชิงเขาสึคุบะ เป็นสถานที่สถิตของเทพเจ้าสามีภรรยา "Izanagi" และ "Izanami" ผู้สร้างแผ่นดินญี่ปุ่น มีชื่อเสียงโด่งดังเรื่องการขอพรให้ครอบครัวร่มเย็น ความรักยั่งยืน และการผูกสัมพันธ์มงคล ประตูศาลเจ้าไม้แกะสลักใหญ่โตและบรรยากาศป่าสนโบราณมอบความสงบใจอย่างยิ่ง</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-clock me-2"></i>เวลาทำการ:</strong> เปิดให้สักการะตลอด 24 ชั่วโมง (อาคารจำหน่ายเครื่องรางเปิด 08:30 – 17:00 น.)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-ticket me-2"></i>ค่าเข้าชม:</strong> Free! (สักการะฟรี)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-bus me-2"></i>การเดินทาง:</strong> นั่งบัส Shuttle จาก Tsukuba Station ลงป้าย "Tsukubasan-jinja-guchi" เดินต่อ 5 นาที</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="http://www.tsukubasan-jinja.jp/" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>เว็บไซต์ ศาลเจ้า Official</a>
+                    <a href="https://maps.google.com/?q=Tsukubasan+Shrine" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Tsukuba Center Building -->
+        <div id="center-building" class="detail-card">
+            <img src="images/tsukuba_center_building_real.jpg" alt="Tsukuba Center Building" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-building me-1"></i> สถาปัตยกรรมระดับโลก</span>
+                <h2 class="spot-title">3. Tsukuba Center Building (つくばセンタービル)</h2>
+                <p>ผลงานชิ้นเอกระดับตำนานสไตล์ Postmodern วาดออกแบบโดย Arata Isozaki สถาปนิกรางวัล Pritzker Prize ระดับโลก ศูนย์กลางเมืองโดดเด่นด้วย Sunken Plaza ทรงไข่กลางแจ้ง ลายพื้นหินแกรนิตสลับสี และอาคารล้อมรอบที่ผสมผสานศิลปะคลาสสิกกับความทันสมัยได้อย่างน่าทึ่ง</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-clock me-2"></i>เวลาทำการ:</strong> จัตุรัสกลางแจ้งเปิดตลอดเวลา (ร้านค้าและพลาซ่า 10:00 – 20:00 น.)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-person-walking me-2"></i>การเดินทาง:</strong> ตั้งอยู่ใจกลางเมือง เดินเพียง 2 นาที (150 เมตร) จากสถานี Tsukuba Station</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://maps.google.com/?q=Tsukuba+Center+Building" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Doho Park -->
+        <div id="doho-park" class="detail-card">
+            <img src="images/doho_park_cafe_lakeside.jpg" alt="Doho Park Lakeside Cafe" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-tree me-1"></i> สวนสาธารณะ & คาเฟ่ริมน้ำ</span>
+                <h2 class="spot-title">4. สวนสาธารณะโดโฮ (Doho Park - 洞峰公園)</h2>
+                <p>สวนสาธารณะที่ใหญ่และร่มรื่นที่สุดในใจกลางเมืองทซึคุบะ ล้อมรอบด้วยต้นเมเปิ้ลและต้นคิงโกะ (แปะก๊วย) ศูนย์กลางสวนมีทะเลสาบโดโฮขนาดใหญ่ สนามเด็กเล่น สระว่ายน้ำในร่มมาตรฐาน และคาเฟ่เรือนไม้อบอุ่นริมน้ำ Doho Cafe เหมาะสำหรับเดินเล่น พักผ่อน สูดอากาศบริสุทธิ์ของครอบครัว</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-clock me-2"></i>เวลาทำการ:</strong> เปิดบริการ 24 ชั่วโมง</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-ticket me-2"></i>ค่าเข้าชม:</strong> Free!</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-bus me-2"></i>การเดินทาง:</strong> นั่ง Kantetsu Bus จาก Tsukuba Station ลงป้าย "Doho Kōen" (10 นาที)</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://www.koen.pref.ibaraki.jp/park/doho01.html" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>เว็บไซต์ Doho Park Official</a>
+                    <a href="https://maps.google.com/?q=Doho+Park+Tsukuba" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. Tsukuba Museum of Art -->
+        <div id="art-museum" class="detail-card">
+            <img src="images/tsukuba_art_museum_real2.jpg" alt="Tsukuba Museum of Art" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-palette me-1"></i> พิพิธภัณฑ์ศิลปะ & แกลเลอรี</span>
+                <h2 class="spot-title">5. พิพิธภัณฑ์ศิลปะทซึคุบะ (Tsukuba Museum of Art - 茨城県つくば美術館)</h2>
+                <p>พิพิธภัณฑ์ศิลปะประจำจังหวัดอิบารากิ ตั้งอยู่ติดกับสวนสาธารณะใจกลางเมือง จัดแสดงงานศิลปะประติมากรรม ภาพเขียนร่วมสมัย ศิลปะภาพถ่าย และมีโซนกิจกรรมสร้างสรรค์สำหรับเด็ก</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-clock me-2"></i>เวลาทำการ:</strong> 09:30 – 17:00 น. (ปิดวันจันทร์)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-ticket me-2"></i>ค่าเข้าชม:</strong> เข้าชมทั่วไปฟรี (อาจมีค่าเข้าชมเฉพาะนิทรรศการพิเศษ)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-person-walking me-2"></i>การเดินทาง:</strong> เดิน 4 นาที (300 เมตร) จากสถานี Tsukuba Station ทางออก A2</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://www.tsukuba-bunka.jp/artmuseum/" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>เว็บไซต์ Art Museum Official</a>
+                    <a href="https://maps.google.com/?q=Tsukuba+Museum+of+Art" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Tsukuba Travel Portal — Nature & Scenic Section</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

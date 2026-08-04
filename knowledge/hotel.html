@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel - รวมที่พักทซึคุบะทั้งหมด</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --nav-bg: #0f172a;
+            --accent-hotel: #be123c;
+        }
+
+        body {
+            font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid #1e293b;
+            padding: 0.85rem 0;
+        }
+        .navbar-custom .navbar-brand {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
+        }
+        .navbar-custom .nav-link {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: color 0.15s ease, background-color 0.15s ease;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 3.5rem 0 3rem;
+            border-bottom: 1px solid #1e293b;
+        }
+        .page-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .page-subtitle {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Detail Cards */
+        .detail-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .detail-img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+        }
+        .detail-body {
+            padding: 1.75rem;
+        }
+        .tag-badge {
+            display: inline-block;
+            background-color: #ffe4e6;
+            color: #be123c;
+            font-size: 0.8rem;
+            font-weight: 700;
+            padding: 0.25rem 0.75rem;
+            border-radius: 6px;
+            margin-bottom: 0.75rem;
+        }
+        .spot-title {
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 0.75rem;
+            color: var(--text-main);
+        }
+
+        .meta-grid {
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin: 1.25rem 0;
+            font-size: 0.9rem;
+        }
+        .meta-item {
+            margin-bottom: 0.4rem;
+        }
+        .meta-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .btn-link-out {
+            display: inline-block;
+            background-color: #f8fafc;
+            color: #334155;
+            border: 1px solid #cbd5e1;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 0.4rem 0.9rem;
+            border-radius: 6px;
+            margin-right: 0.5rem;
+            margin-top: 0.5rem;
+            transition: background-color 0.15s ease;
+        }
+        .btn-link-out:hover {
+            background-color: #e2e8f0;
+            color: #0f172a;
+        }
+
+        /* Comparison Table */
+        .table-custom {
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .table-custom th {
+            background-color: #0f172a;
+            color: #ffffff;
+            font-weight: 600;
+            padding: 0.9rem 1rem;
+        }
+        .table-custom td {
+            padding: 0.9rem 1rem;
+            vertical-align: middle;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-compass me-2 text-primary"></i>Tsukuba Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="science.html">Science</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nature.html">Nature</a></li>
+                    <li class="nav-item"><a class="nav-link" href="food.html">Food</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="hotel.html">Hotel</a></li>
+                    <li class="nav-item"><a class="nav-link" href="map.html">Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header text-center">
+        <div class="container">
+            <h1 class="page-title"><i class="fa-solid fa-hotel me-2 text-danger"></i>Hotel & Accommodations</h1>
+            <p class="page-subtitle">รวบรวมที่พักคุณภาพสูงในเมืองทซึคุบะ ตั้งแต่โรงแรมติดสถานีรถไฟ ไปจนถึงเรียวกังออนเซ็นธรรมชาติเชิงเขาสึคุบะ</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+
+        <!-- 1. Daiwa Roynet Hotel Tsukuba -->
+        <div id="daiwa" class="detail-card">
+            <img src="images/daiwa_roynet_tsukuba_real.jpg" alt="Daiwa Roynet Hotel Tsukuba" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-star me-1"></i> อันดับ 1 ทำเลสะดวกที่สุด (แนะนำสำหรับครอบครัว)</span>
+                <h2 class="spot-title">1. Daiwa Roynet Hotel Tsukuba (ダイワロイネットホテルつくば)</h2>
+                <p>โรงแรมที่ดีที่สุดสำหรับการเดินทางครอบครัว ตั้งอยู่ติดสถานี Tsukuba Station (ทางออก A5 เดินเพียง 1 นาที 101 เมตร) ห้องพักกว้างขวาง สดสะอาด มีอ่างอาบน้ำในตัว เตียงนอนสบาย สิ่งอำนวยความสะดวกครบครัน ใกล้ร้านสะดวกซื้อ FamilyMart และศูนย์การค้า Tonarie</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-location-dot me-2"></i>ทำเล:</strong> ติดสถานี Tsukuba Station Exit A5 (เดิน 1 นาที)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-yen-sign me-2"></i>ราคาประเมิน:</strong> ~12,000 – 18,000 เยน / คืน</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-thumbs-up me-2"></i>จุดเด่น:</strong> ไม่ต้องลากกระเป๋าไกล, เดินทางไป JAXA, Expo Center และเขาสึคุบะสะดวกที่สุด</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://www.daiwaroynet.jp/tsukuba/" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>เว็บไซต์ Daiwa Roynet Official</a>
+                    <a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Tsukuba" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. Hotel Nikko Tsukuba -->
+        <div id="nikko" class="detail-card">
+            <img src="images/hotel_nikko_tsukuba_bstatic.jpg" alt="Hotel Nikko Tsukuba" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-crown me-1"></i> โรงแรมหรูระดับ 4 ดาว</span>
+                <h2 class="spot-title">2. Hotel Nikko Tsukuba (ホテル日航つくば)</h2>
+                <p>โรงแรมหรูหรามาตรฐานนิปปอนเซ็นจูรี เชื่อมต่อกับทางเดินลอยฟ้า Pedestrian Deck มีห้องอาหารชั้นเลิศ สระว่ายน้ำในร่ม บริการดีเยี่ยม ตกแต่งสไตล์โมเดิร์นคลาสสิก มอบความผ่อนคลายระดับพรีเมียม</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-location-dot me-2"></i>ทำเล:</strong> เดิน 3 นาที (250 เมตร) จากสถานี Tsukuba Station</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-yen-sign me-2"></i>ราคาประเมิน:</strong> ~16,000 – 26,000 เยน / คืน</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-thumbs-up me-2"></i>จุดเด่น:</strong> บริการระดับ 4 ดาว, อาหารเช้าบุฟเฟต์นานาชาติยอดเยี่ยม</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://www.nikko-tsukuba.com/" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>เว็บไซต์ Hotel Nikko Official</a>
+                    <a href="https://maps.google.com/?q=Hotel+Nikko+Tsukuba" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 3. Tsukubasan Edoya Ryokan -->
+        <div id="edoya" class="detail-card">
+            <img src="images/tsukubasan_shrine_real.jpg" alt="Tsukubasan Edoya Ryokan" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-hot-tub-person me-1"></i> เรียวกังออนเซ็น 300 ปี</span>
+                <h2 class="spot-title">3. Tsukubasan Edoya Ryokan (筑波山 江戸屋)</h2>
+                <p>เรียวกังดั้งเดิมสไตล์ญี่ปุ่นประวัติศาสตร์ยาวนานกว่า 360 ปี ตั้งอยู่เชิงเขาสึคุบะ ใกล้ศาลเจ้า Tsukubasan Shrine มีบ่อน้ำแร่ออนเซ็นธรรมชาติกลางแจ้ง (Open-air Onsen) ท่ามกลางป่าสน และเสิร์ฟอาหารคายเซกิ (Kaiseki) วัตถุดิบท้องถิ่นตามฤดูกาล</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-location-dot me-2"></i>ทำเล:</strong> เชิงเขาสึคุบะ (นั่งบัส Shuttle 36 นาทีจาก Tsukuba Station)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-yen-sign me-2"></i>ราคาประเมิน:</strong> ~28,000 – 42,000 เยน / คืน (รวมอาหารเช้าและค่ำ)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-thumbs-up me-2"></i>จุดเด่น:</strong> ออนเซ็นธรรมชาติแท้ 100%, ประสบการณ์เรียวกังเสื่อทาทามิญี่ปุ่นดั้งเดิม</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://www.tsukubasan-edoya.co.jp/" target="_blank" class="btn-link-out"><i class="fa-solid fa-globe me-1"></i>เว็บไซต์ Edoya Ryokan Official</a>
+                    <a href="https://maps.google.com/?q=Tsukubasan+Edoya" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. Urban Hotel Tsukuba -->
+        <div id="urban" class="detail-card">
+            <img src="images/toyoko_inn_tsukuba_real.jpg" alt="Urban Hotel Tsukuba" class="detail-img">
+            <div class="detail-body">
+                <span class="tag-badge"><i class="fa-solid fa-piggy-bank me-1"></i> ที่พักคุ้มค่าคุ้มราคา</span>
+                <h2 class="spot-title">4. Urban Hotel Tsukuba (アーบันホテルつくば)</h2>
+                <p>โรงแรมบรรยากาศเงียบสงบ ห้องพักสะอาด กว้างขวาง มีที่จอดรถฟรี และสิ่งอำนวยความสะดวกพื้นฐานครบถ้วน เหมาะสำหรับผู้ที่ต้องการความประหยัดและพักผ่อนในบรรยากาศผ่อนคลาย</p>
+                
+                <div class="meta-grid">
+                    <div class="meta-item"><strong><i class="fa-solid fa-location-dot me-2"></i>ทำเล:</strong> ห่างจากสถานี Tsukuba 2.5 กม. (บัส 8 นาที)</div>
+                    <div class="meta-item"><strong><i class="fa-solid fa-yen-sign me-2"></i>ราคาประเมิน:</strong> ~8,500 – 12,000 เยน / คืน</div>
+                </div>
+
+                <div class="d-flex flex-wrap">
+                    <a href="https://maps.google.com/?q=Urban+Hotel+Tsukuba" target="_blank" class="btn-link-out"><i class="fa-solid fa-map-location-dot me-1"></i>เปิด Google Maps</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Table -->
+        <div class="my-5">
+            <h3 class="fw-bold mb-3"><i class="fa-solid fa-table me-2 text-primary"></i>ตารางเปรียบเทียบที่พักสำหรับครอบครัว</h3>
+            <div class="table-responsive">
+                <table class="table table-custom">
+                    <thead>
+                        <tr>
+                            <th>ชื่อที่พัก</th>
+                            <th>ระยะจากสถานี TX</th>
+                            <th>ประเภทที่พัก</th>
+                            <th>ราคาประเมิน/คืน</th>
+                            <th>เหมาะกับใคร</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Daiwa Roynet Hotel Tsukuba</strong></td>
+                            <td>101 ม. (เดิน 1 นาที)</td>
+                            <td>City Hotel (Modern)</td>
+                            <td>12,000 - 18,000 เยน</td>
+                            <td><span class="badge bg-success">ครอบครัว (สะดวกที่สุด ⭐)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Hotel Nikko Tsukuba</strong></td>
+                            <td>250 ม. (เดิน 3 นาที)</td>
+                            <td>Full-service Hotel 4★</td>
+                            <td>16,000 - 26,000 เยน</td>
+                            <td>นักท่องเที่ยวเน้นความหรูหรา</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Tsukubasan Edoya Ryokan</strong></td>
+                            <td>16.5 กม. (บัส 36 นาที)</td>
+                            <td>Traditional Onsen Ryokan</td>
+                            <td>28,000 - 42,000 เยน</td>
+                            <td>ผู้ต้องการพักผ่อนแช่ออนเซ็น</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Urban Hotel Tsukuba</strong></td>
+                            <td>2.5 กม. (บัส 8 นาที)</td>
+                            <td>Business / Budget Hotel</td>
+                            <td>8,500 - 12,000 เยน</td>
+                            <td>เน้นความคุ้มค่าประหยัดงบ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Tsukuba Travel Portal — Hotel & Accommodations Section</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

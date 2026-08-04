@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map - แผนที่พิกัดรวมและการเดินทางทซึคุบะ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border-color: #e2e8f0;
+            --nav-bg: #0f172a;
+            --accent-map: #0d9488;
+        }
+
+        body {
+            font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* Navbar */
+        .navbar-custom {
+            background-color: var(--nav-bg);
+            border-bottom: 1px solid #1e293b;
+            padding: 0.85rem 0;
+        }
+        .navbar-custom .navbar-brand {
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            letter-spacing: -0.3px;
+        }
+        .navbar-custom .nav-link {
+            color: #94a3b8;
+            font-size: 0.95rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            transition: color 0.15s ease, background-color 0.15s ease;
+        }
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: #ffffff;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        /* Page Header */
+        .page-header {
+            background-color: #0f172a;
+            color: #ffffff;
+            padding: 3.5rem 0 3rem;
+            border-bottom: 1px solid #1e293b;
+        }
+        .page-title {
+            font-size: clamp(2rem, 3.5vw, 2.8rem);
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .page-subtitle {
+            color: #94a3b8;
+            font-size: 1.05rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* Map Container */
+        #map {
+            height: 520px;
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            z-index: 1;
+        }
+
+        /* Filter Buttons */
+        .filter-btn {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #334155;
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 0.4rem 1rem;
+            border-radius: 9999px;
+            cursor: pointer;
+            transition: all 0.15s ease;
+            margin-right: 0.35rem;
+            margin-bottom: 0.5rem;
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background-color: #0f172a;
+            color: #ffffff;
+            border-color: #0f172a;
+        }
+
+        /* Spot List Sidebar/Cards */
+        .spot-card {
+            background-color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 0.75rem;
+            cursor: pointer;
+            transition: border-color 0.15s ease;
+        }
+        .spot-card:hover {
+            border-color: #0284c7;
+        }
+        .spot-card-img {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        /* Custom Popup Styling */
+        .leaflet-popup-content-wrapper {
+            border-radius: 10px;
+            padding: 4px;
+        }
+        .popup-card-img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+        .popup-title {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 4px;
+        }
+        .popup-desc {
+            font-size: 0.8rem;
+            color: #475569;
+            margin-bottom: 8px;
+        }
+
+        /* Detail Cards */
+        .detail-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+            padding: 1.75rem;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            padding: 2.5rem 0;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fa-solid fa-compass me-2 text-primary"></i>Tsukuba Portal
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="science.html">Science</a></li>
+                    <li class="nav-item"><a class="nav-link" href="nature.html">Nature</a></li>
+                    <li class="nav-item"><a class="nav-link" href="food.html">Food</a></li>
+                    <li class="nav-item"><a class="nav-link" href="hotel.html">Hotel</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="map.html">Map</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header text-center">
+        <div class="container">
+            <h1 class="page-title"><i class="fa-solid fa-map-location-dot me-2 text-teal"></i>Interactive Map & Transport</h1>
+            <p class="page-subtitle">แผนที่แบบโต้ตอบปักหมุด GPS 20 พิกัดท่องเที่ยว และข้อมูลการเดินทาง รถไฟ Tsukuba Express (TX) และตารางบัส</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+
+        <!-- Filter Controls -->
+        <div class="d-flex flex-wrap align-items-center justify-content-between mb-3">
+            <div>
+                <h4 class="fw-bold mb-2"><i class="fa-solid fa-layer-group me-2"></i>แผนที่พิกัดรวม 20 จุดสำคัญ</h4>
+                <p class="text-muted small mb-0">คลิกที่หมุดบนแผนที่เพื่อดูข้อมูลเพิ่มเติม หรือกรองหมวดหมู่ที่สนใจ</p>
+            </div>
+            <div class="mt-2 mt-md-0">
+                <button class="filter-btn active" onclick="filterMap('all', this)">ทั้งหมด (20)</button>
+                <button class="filter-btn" onclick="filterMap('science', this)">Science (6)</button>
+                <button class="filter-btn" onclick="filterMap('nature', this)">Nature (5)</button>
+                <button class="filter-btn" onclick="filterMap('food', this)">Food (5)</button>
+                <button class="filter-btn" onclick="filterMap('hotel', this)">Hotel (4)</button>
+            </div>
+        </div>
+
+        <!-- Map & Spot List Grid -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-8">
+                <div id="map"></div>
+            </div>
+            <div class="col-lg-4">
+                <div class="p-3 bg-white border rounded-3" style="max-height: 520px; overflow-y: auto;">
+                    <h6 class="fw-bold mb-3 text-muted">รายชื่อพิกัดสำคัญ (Spots)</h6>
+                    <div id="spot-list">
+                        <!-- Spot items rendered via JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transport Section -->
+        <div id="transport" class="pt-3">
+            <h3 class="fw-bold mb-4"><i class="fa-solid fa-bus me-2 text-primary"></i>คู่มือการเดินทาง & ระบบขนส่ง (Logistics Guide)</h3>
+
+            <!-- 1. Tsukuba Express (TX) -->
+            <div class="detail-card">
+                <span class="badge bg-primary text-white mb-2">รถไฟด่วน TX</span>
+                <h4 class="fw-bold">1. Tsukuba Express (TX) - รถไฟด่วนเชื่อมตรงโตเกียว</h4>
+                <p class="text-muted">เส้นทางรถไฟด่วนความเร็วสูง (130 km/h) เชื่อมต่อจากสถานี Akihabara (โตเกียว) ตรงถึงสถานี Tsukuba Station ปลายทางอย่างรวดเร็ว สะอาด เดินรถตรงเวลา 100%</p>
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded border">
+                            <strong class="d-block text-dark">Rapid Train (ด่วนพิเศษ)</strong>
+                            <span class="small text-muted">ใช้เวลา 45 นาที (จอด 7 สถานี)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded border">
+                            <strong class="d-block text-dark">Semi-Rapid Train (ด่วน)</strong>
+                            <span class="small text-muted">ใช้เวลา 52 นาที (จอด 14 สถานี)</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-3 bg-light rounded border">
+                            <strong class="d-block text-dark">ค่าโดยสาร (Akihabara - Tsukuba)</strong>
+                            <span class="small text-muted">1,210 เยน (ใช้ IC Card เช่น Suica/Pasmo ได้)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 2. Bus & Passes -->
+            <div class="detail-card">
+                <span class="badge bg-success text-white mb-2">ตั๋วพิเศษ & Tsukbus</span>
+                <h4 class="fw-bold">2. ตารางบัส Tsukbus & ตั๋วพิเศษ Mount Tsukuba Ticket</h4>
+                <p class="text-muted">ระบบรถบัสประจำทางเมืองทซึคุบะแบ่งเป็น Kantetsu Bus และ Tsukbus ครอบคลุมทุกจุดท่องเที่ยว</p>
+                <ul class="text-muted small mb-3">
+                    <li class="mb-2"><strong>Tsukbus Nambu Shuttle (南南部シャトル):</strong> วิ่งไป NARO Food Museum, Kawarakeya Strawberry Farm และสวนโดโฮ</li>
+                    <li class="mb-2"><strong>Mount Tsukuba Shuttle Bus:</strong> วิ่งตรงจาก Tsukuba Bus Terminal (ป้าย No. 1) ไปยังศาลเจ้า Tsukubasan Shrine และจุดขึ้นกระเช้า (36 นาที)</li>
+                    <li class="mb-2"><strong>ตั๋วส่วนลด Tsukubasan Story Ticket (筑波山ストーリーチケット):</strong> รวมค่ารถไฟ TX ไป-กลับ + รถบัสไป-กลับ + Cable Car/Ropeway ไม่จำกัดรอบ ประหยัดได้มากกว่า 30%</li>
+                </ul>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p class="mb-0">&copy; 2026 Tsukuba Travel Portal — Interactive Map & Transport Section</p>
+        </div>
+    </footer>
+
+    <!-- Leaflet JS & Bootstrap -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // 20 Master Spots Data mapped to new categories
+        const spotsData = [
+            // Category: science
+            { id: 1, name: "JAXA Tsukuba Space Center", cat: "science", catName: "Science", lat: 36.0645, lng: 140.1265, dist: "2.1 กม. (บัส 8 นาที)", img: "images/jaxa_tsukuba_space_center_ta1.jpg", link: "science.html#jaxa", desc: "ศูนย์อวกาศใหญ่ที่สุดในญี่ปุ่น จรวด H-II และโมเดล Kibo ISS" },
+            { id: 2, name: "Tsukuba Botanical Garden (Bottani)", cat: "science", catName: "Science", lat: 36.1008, lng: 140.1118, dist: "2.2 กม. (บัส 8 นาที)", img: "images/tsukuba_botanical_garden_ta1.jpg", link: "science.html#botanical", desc: "สวนพฤกษศาสตร์วิจัยแห่งชาติ โดมเรือนกระจกพืชพรรณเขตร้อน" },
+            { id: 3, name: "Tsukuba Expo Center", cat: "science", catName: "Science", lat: 36.0858, lng: 140.1132, dist: "450 ม. (เดิน 5 นาที)", img: "images/tsukuba_expo_center.jpg", link: "science.html#expo", desc: "พิพิธภัณฑ์วิทยาศาสตร์ ท้องฟ้าจำลองโดมใหญ่ และหุ่นยนต์" },
+            { id: 4, name: "Geological Museum (地質標本館)", cat: "science", catName: "Science", lat: 36.0560, lng: 140.1350, dist: "3.2 กม. (บัส 12 นาที)", img: "images/geological_museum_ta1.jpg", link: "science.html#geological", desc: "พิพิธภัณฑ์ธรณีวิทยา อัญมณี ฟอสซิล และหินภูเขาไฟ" },
+            { id: 5, name: "Science Square AIST", cat: "science", catName: "Science", lat: 36.0562, lng: 140.1365, dist: "3.3 กม. (บัส 12 นาที)", img: "images/science_square_ta1.jpg", link: "science.html#science-square", desc: "โชว์รูมนวัตกรรมและหุ่นยนต์อัจฉริยะ Paro Seal Robot" },
+            { id: 6, name: "NARO Tsukuba Food Research Center", cat: "science", catName: "Science", lat: 36.0305, lng: 140.1340, dist: "6.0 กม. (บัส 20 นาที)", img: "images/naro_food_research.jpg", link: "science.html#naro", desc: "สถาบันวิจัยเทคโนโลยีอาหารและการเกษตรอัจฉริยะ" },
+
+            // Category: nature
+            { id: 7, name: "ยอดเขาสึคุบะ & Cable Car (Mt. Tsukuba)", cat: "nature", catName: "Nature", lat: 36.2254, lng: 140.1075, dist: "18 กม. (บัส 36 นาที)", img: "images/tsukubasan_shrine_real.jpg", link: "nature.html#tsukubasan", desc: "ยอดเขา 877m 1 ใน 100 ภูเขาชื่อดัง วิว 360° ที่ราบคันโต" },
+            { id: 8, name: "ศาลเจ้าสึคุบะซัน (Tsukubasan Shrine)", cat: "nature", catName: "Nature", lat: 36.2137, lng: 140.1017, dist: "16.5 กม. (บัส 36 นาที)", img: "images/mt_tsukuba_shrine_gate.jpg", link: "nature.html#shrine", desc: "ศาลเจ้าชินโตเทพเจ้าสามีภรรยา ขอพรความรักและการผูกสัมพันธ์" },
+            { id: 9, name: "Tsukuba Center Building (Arata Isozaki)", cat: "nature", catName: "Nature", lat: 36.0818, lng: 140.1128, dist: "150 ม. (เดิน 2 นาที)", img: "images/tsukuba_center_building_real.jpg", link: "nature.html#center-building", desc: "ผลงานสถาปัตยกรรม Postmodern Sunken Plaza รูปไข่" },
+            { id: 10, name: "Tsukuba Museum of Art (พิพิธภัณฑ์ศิลปะ)", cat: "nature", catName: "Nature", lat: 36.0825, lng: 140.1138, dist: "300 ม. (เดิน 4 นาที)", img: "images/tsukuba_art_museum_real2.jpg", link: "nature.html#art-museum", desc: "พิพิธภัณฑ์ศิลปะประจำจังหวัดอิบารากิ นิทรรศการและกิจกรรมเด็ก" },
+            { id: 11, name: "สวนสาธารณะโดโฮ & Doho Cafe", cat: "nature", catName: "Nature", lat: 36.0602, lng: 140.1215, dist: "2.5 กม. (บัส 10 นาที)", img: "images/doho_park_cafe_lakeside.jpg", link: "nature.html#doho-park", desc: "สวนสาธารณะใหญ่พร้อมทะเลสาบ คาเฟ่เรือนไม้อบอุ่น Doho Cafe" },
+
+            // Category: food
+            { id: 12, name: "Ramen Tatsuro (ラーメン龍郎)", cat: "food", catName: "Food", lat: 36.0885, lng: 140.1165, dist: "725 ม. (เดิน 8 นาที)", img: "images/ramen_tatsuro_ta1.jpg", link: "food.html#ramen", desc: "ร้านราเมน Miso Jiro ชามยักษ์ หมูชาชูหนานุ่มผักพูนชาม" },
+            { id: 13, name: "Kawarakeya Strawberry Farm", cat: "food", catName: "Food", lat: 36.0385, lng: 140.1200, dist: "5.2 กม. (บัส 18 นาที)", img: "images/kawarakeya_strawberry_1.jpg", link: "food.html#strawberry", desc: "ฟาร์มเก็บสตรอเบอร์รี่สดเรือนกระจก และให้อาหารน้องแพะ 🐐" },
+            { id: 14, name: "Soba Shin Ida (蕎麦 Shin 飯田)", cat: "food", catName: "Food", lat: 36.2046, lng: 140.0967, dist: "15.8 กม. (บัส shuttle)", img: "images/soba_shin_ida_duck.webp", link: "food.html#soba", desc: "โซบะทำมือปรมาจารย์ เมนูเด็ดโซบะเย็นเนื้อเป็ดปิ้งย่าง" },
+            { id: 15, name: "BiVi Tsukuba (ร้านอาหาร & Hitachi Beef)", cat: "food", catName: "Food", lat: 36.0831, lng: 140.1100, dist: "50 ม. (ติดสถานี)", img: "images/tsukuba_center_building.jpg", link: "food.html#hitachi-beef", desc: "ศูนย์การค้าและคอมเพล็กซ์ร้านอาหาร เสิร์ฟเนื้อวัวฮิตาจิสเต๊ก" },
+            { id: 16, name: "Aozora Kitchen (เวิร์กชอปทำอาหารเด็ก)", cat: "food", catName: "Food", lat: 36.0420, lng: 140.1250, dist: "4.8 กม. (บัส 16 นาที)", img: "images/aozora_kitchen_kids1.jpg", link: "food.html#aozora", desc: "เวิร์กชอปทำอาหารและแปรรูปวัตถุดิบเกษตรสำหรับเด็ก" },
+
+            // Category: hotel
+            { id: 17, name: "Daiwa Roynet Hotel Tsukuba", cat: "hotel", catName: "Hotel", lat: 36.0838, lng: 140.1108, dist: "101 ม. (เดิน 1 นาที)", img: "images/daiwa_roynet_tsukuba_real.jpg", link: "hotel.html#daiwa", desc: "ที่พักทำเลอันดับ 1 ติดสถานี Tsukuba Station ทางออก A5" },
+            { id: 18, name: "Hotel Nikko Tsukuba", cat: "hotel", catName: "Hotel", lat: 36.0805, lng: 140.1130, dist: "250 ม. (เดิน 3 นาที)", img: "images/hotel_nikko_tsukuba_bstatic.jpg", link: "hotel.html#nikko", desc: "โรงแรม Full-service หรูหรา เชื่อมทางเดินลอยฟ้า Pedestrian Deck" },
+            { id: 19, name: "Tsukubasan Edoya Ryokan", cat: "hotel", catName: "Hotel", lat: 36.2130, lng: 140.1010, dist: "16.5 กม. (บัส shuttle)", img: "images/tsukubasan_shrine_real.jpg", link: "hotel.html#edoya", desc: "เรียวกังดั้งเดิม 300 ปี พร้อมออนเซ็นธรรมชาติเชิงเขาสึคุบะ" },
+            { id: 20, name: "Urban Hotel Tsukuba", cat: "hotel", catName: "Hotel", lat: 36.0950, lng: 140.1180, dist: "2.5 กม. (บัส 8 นาที)", img: "images/toyoko_inn_tsukuba_real.jpg", link: "hotel.html#urban", desc: "โรงแรมประหยัด วิวสวย บรรยากาศผ่อนคลาย" }
+        ];
+
+        const catColor = {
+            science: "#0284c7",
+            nature: "#059669",
+            food: "#ea580c",
+            hotel: "#be123c"
+        };
+
+        // Initialize Map
+        const map = L.map('map').setView([36.1000, 140.1150], 12);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 18,
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        const markers = [];
+
+        function createPin(color) {
+            return L.divIcon({
+                className: 'custom-pin',
+                html: `<div style="background-color: ${color}; width: 22px; height: 22px; border-radius: 50%; border: 3px solid white; box-shadow: 0 2px 5px rgba(0,0,0,0.3);"></div>`,
+                iconSize: [22, 22],
+                iconAnchor: [11, 11]
+            });
+        }
+
+        // Render Spots & Markers
+        const spotListContainer = document.getElementById('spot-list');
+
+        spotsData.forEach((spot, idx) => {
+            const color = catColor[spot.cat] || '#0f172a';
+            const marker = L.marker([spot.lat, spot.lng], { icon: createPin(color) }).addTo(map);
+            
+            const popupContent = `
+                <div style="width: 200px;">
+                    <img src="${spot.img}" class="popup-card-img" alt="${spot.name}">
+                    <div class="popup-title">${spot.name}</div>
+                    <div class="popup-desc">${spot.desc}</div>
+                    <a href="${spot.link}" class="btn btn-sm btn-dark w-100 text-white" style="font-size: 0.75rem;">ดูรายละเอียด</a>
+                </div>
+            `;
+            marker.bindPopup(popupContent);
+            markers.push({ category: spot.cat, marker: marker, id: spot.id });
+
+            // Create Sidebar Card
+            const card = document.createElement('div');
+            card.className = 'spot-card d-flex align-items-center gap-2';
+            card.setAttribute('data-cat', spot.cat);
+            card.onclick = () => {
+                map.setView([spot.lat, spot.lng], 15);
+                marker.openPopup();
+            };
+
+            card.innerHTML = `
+                <img src="${spot.img}" class="spot-card-img" alt="${spot.name}">
+                <div>
+                    <h6 class="fw-bold mb-1" style="font-size: 0.85rem; color: #0f172a;">${spot.name}</h6>
+                    <span class="badge text-bg-light border" style="font-size: 0.75rem;">${spot.dist}</span>
+                </div>
+            `;
+            spotListContainer.appendChild(card);
+        });
+
+        // Filter Map Function
+        function filterMap(cat, btnElem) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            if (btnElem) btnElem.classList.add('active');
+
+            markers.forEach(item => {
+                if (cat === 'all' || item.category === cat) {
+                    map.addLayer(item.marker);
+                } else {
+                    map.removeLayer(item.marker);
+                }
+            });
+
+            document.querySelectorAll('.spot-card').forEach(card => {
+                if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>

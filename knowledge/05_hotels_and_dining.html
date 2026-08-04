@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ที่พัก & ร้านอาหาร - Tsukuba Knowledge Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-night: #000000;
+            --canvas-night-elevated: #0a0a0a;
+            --canvas-light: #ffffff;
+            --canvas-cream: #fbfbf5;
+            --aloe-10: #c1fbd4;
+            --pistachio-10: #d4f9e0;
+            --ink: #000000;
+            --on-primary: #ffffff;
+            --shade-30: #d4d4d8;
+            --shade-40: #a1a1aa;
+            --shade-50: #71717a;
+            --hairline-light: #e4e4e7;
+            --hairline-dark: #1e2c31;
+        }
+        body {
+            font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-feature-settings: "ss03";
+            background-color: var(--canvas-cream);
+            color: var(--ink);
+        }
+        .navbar-shopifi {
+            background-color: var(--canvas-night);
+            border-bottom: 1px solid var(--hairline-dark);
+            padding: 1rem 0;
+        }
+        .navbar-shopifi .nav-link {
+            color: var(--shade-40);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .navbar-shopifi .nav-link:hover, .navbar-shopifi .nav-link.active {
+            color: var(--on-primary);
+        }
+        .card-shopifi {
+            background-color: var(--canvas-light);
+            border: 1px solid var(--hairline-light);
+            border-radius: 16px;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.03);
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+        }
+        .img-hero { width: 100%; max-height: 400px; object-fit: cover; }
+        .img-hotel { width: 100%; height: 200px; object-fit: cover; border-radius: 12px; }
+        .img-secondary { width: 100%; max-height: 300px; object-fit: cover; border-radius: 12px; }
+        .btn-pill-outline-dark {
+            background-color: transparent;
+            color: var(--ink);
+            border: 1.5px solid var(--ink);
+            border-radius: 9999px;
+            padding: 8px 22px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .btn-pill-booking {
+            background-color: #003580;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-booking:hover {
+            background-color: #00224f;
+            color: var(--on-primary);
+        }
+        .btn-pill-agoda {
+            background-color: #5392f9;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-agoda:hover {
+            background-color: #2b74f7;
+            color: var(--on-primary);
+        }
+        .btn-pill-tabelog {
+            background-color: #fa8500;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-tabelog:hover {
+            background-color: #e06c00;
+            color: var(--on-primary);
+        }
+        .btn-pill-tripadvisor {
+            background-color: #34e0a1;
+            color: #000000;
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-tripadvisor:hover {
+            background-color: #28b883;
+            color: #000000;
+        }
+        .btn-pill-gmaps {
+            background-color: #ea4335;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-gmaps:hover {
+            background-color: #c5221f;
+            color: var(--on-primary);
+        }
+        .tag-mint {
+            background-color: var(--aloe-10);
+            color: var(--ink);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-pistachio {
+            background-color: var(--pistachio-10);
+            color: var(--ink);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-shade {
+            background-color: var(--shade-30);
+            color: var(--ink);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cinematic Navigation (Dark Track) -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-shopifi sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white fs-5" href="index.html">
+                <i class="fa-solid fa-compass me-2 text-white"></i>Tsukuba Knowledge Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="01_science_and_space.html">อวกาศ & วิทยาศาสตร์</a></li>
+                    <li class="nav-item"><a class="nav-link" href="02_food_science_and_farms.html">Food Science & ฟาร์ม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="03_scenic_nature_and_relax.html">ธรรมชาติ & พักผ่อน</a></li>
+                    <li class="nav-item"><a class="nav-link" href="04_transport_and_logistics.html">การเดินทาง & Pass</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="05_hotels_and_dining.html">ที่พัก & ร้านอาหาร</a></li>
+                    <li class="nav-item"><a class="nav-link" href="06_itinerary_and_strategy.html">ยุทธศาสตร์รายวัน</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item active">05. ที่พัก & ร้านอาหาร</li>
+                </ol>
+            </nav>
+            <a href="05_hotels_and_dining_raw.md" class="btn-pill-outline-dark"><i class="fa-solid fa-file-lines me-1"></i>ดูข้อมูลดิบ (Raw Data MD)</a>
+        </div>
+
+        <h1 class="fw-light display-5 mb-2">05. ที่พัก & ร้านอาหาร</h1>
+        <p class="text-muted lead mb-5">เปรียบเทียบที่พักรอบสถานี Tsukuba Station พร้อมลิงก์ Agoda, Booking.com, Trip.com, Google Maps, Tabelog และ Tripadvisor</p>
+
+        <!-- Booking Search Banners Banner -->
+        <div class="card-shopifi p-4 mb-4" style="background-color: #f4f8ff; border-color: #bcdcff;">
+            <div class="d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div>
+                    <h4 class="fw-bold text-dark mb-1"><i class="fa-solid fa-magnifying-glass-location me-2 text-primary"></i>ค้นหารายชื่อโรงแรมและราคา Tsukuba แบบครบถ้วน</h4>
+                    <p class="small text-muted mb-0">ดึงข้อมูลจริงจากลิงก์ผลการค้นหา Agoda & Booking.com สำหรับเมือง Tsukuba</p>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="https://www.booking.com/searchresults.en-gb.html?city=-246898&aid=318615" target="_blank" class="btn-pill-booking"><i class="fa-solid fa-hotel me-1"></i>Booking.com Tsukuba Results</a>
+                    <a href="https://www.agoda.com/search?city=107060" target="_blank" class="btn-pill-agoda"><i class="fa-solid fa-bed me-1"></i>Agoda Tsukuba Results</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section 1: Hotels List -->
+        <div class="card-shopifi">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="fw-bold mb-4">1. รายชื่อที่พักยุทธศาสตร์ (รอบสถานี Tsukuba Station)</h2>
+                
+                <div class="row g-4">
+                    
+                    <!-- Hotel 1: Daiwa Roynet Hotel Tsukuba -->
+                    <div class="col-md-6">
+                        <div class="border rounded-4 p-3 h-100 bg-white shadow-sm">
+                            <img src="images/daiwa_roynet_tsukuba_real.jpg" alt="Daiwa Roynet Hotel Tsukuba" class="img-hotel mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h5 class="fw-bold mb-0">Daiwa Roynet Hotel Tsukuba</h5>
+                                    <p class="small text-muted mb-0"><i class="fa-solid fa-location-dot me-1"></i>101 เมตร จากสถานี Tsukuba (ทางออก A5)</p>
+                                </div>
+                                <span class="badge bg-success">8.7 / 10 ดีเยี่ยม</span>
+                            </div>
+                            <p class="small text-secondary mb-3">ทำเลอันดับ 1 เดินเพียง 1 นาทีจากสถานี Tsukuba Express เชื่อมต่อ Bus Terminal กลาง สะดวกที่สุดสำหรับการเดินทางครอบครัว ไม่ต้องลากกระเป๋าไกล</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a href="https://www.booking.com/hotel/jp/daiwa-roynet-tsukuba.en-gb.html" target="_blank" class="btn-pill-booking"><i class="fa-solid fa-hotel me-1"></i>Booking.com</a>
+                                <a href="https://www.agoda.com/daiwa-roynet-hotel-tsukuba/hotel/tsukuba-jp.html" target="_blank" class="btn-pill-agoda"><i class="fa-solid fa-bed me-1"></i>Agoda</a>
+                                <a href="https://maps.google.com/?q=Daiwa+Roynet+Hotel+Tsukuba" target="_blank" class="btn-pill-gmaps"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hotel 2: Hotel Nikko Tsukuba -->
+                    <div class="col-md-6">
+                        <div class="border rounded-4 p-3 h-100 bg-white shadow-sm">
+                            <img src="images/hotel_nikko_tsukuba_bstatic.jpg" alt="Hotel Nikko Tsukuba" class="img-hotel mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h5 class="fw-bold mb-0">Hotel Nikko Tsukuba</h5>
+                                    <p class="small text-muted mb-0"><i class="fa-solid fa-location-dot me-1"></i>เดิน 3 นาที จากสถานี Tsukuba (ทางออก A3)</p>
+                                </div>
+                                <span class="badge bg-primary">8.1 / 10 ดีมาก</span>
+                            </div>
+                            <p class="small text-secondary mb-3">โรงแรมสไตล์ Full-service หรูหรา ห้องกว้างขวาง มีสระว่ายน้ำในร่ม และห้องอาหารชั้นเลิศ เชื่อมต่อกับเส้นทางเดินลอยฟ้า Pedestrian Deck ไปยัง Expo Center</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a href="https://www.booking.com/hotel/jp/okura-frontier-tsukuba.en-gb.html" target="_blank" class="btn-pill-booking"><i class="fa-solid fa-hotel me-1"></i>Booking.com</a>
+                                <a href="https://www.agoda.com/hotel-nikko-tsukuba/hotel/tsukuba-jp.html" target="_blank" class="btn-pill-agoda"><i class="fa-solid fa-bed me-1"></i>Agoda</a>
+                                <a href="https://maps.google.com/?q=Hotel+Nikko+Tsukuba" target="_blank" class="btn-pill-gmaps"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hotel 3: HOTEL JAL City Tsukuba -->
+                    <div class="col-md-6">
+                        <div class="border rounded-4 p-3 h-100 bg-white shadow-sm">
+                            <img src="images/hotel_jal_city_tsukuba_bstatic.jpg" alt="HOTEL JAL City Tsukuba" class="img-hotel mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h5 class="fw-bold mb-0">HOTEL JAL City Tsukuba</h5>
+                                    <p class="small text-muted mb-0"><i class="fa-solid fa-location-dot me-1"></i>เดิน 8 นาที จากสถานี Tsukuba</p>
+                                </div>
+                                <span class="badge bg-info text-dark">8.4 / 10 ดีมาก</span>
+                            </div>
+                            <p class="small text-secondary mb-3">โรงแรมมาตรฐานเครือ Okura Nikko บรรยากาศเงียบสงบ ห้องพักสะอาดทันสมัย บริการระดับพรีเมียม เดินไปยังใจกลางเมืองได้สบาย</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a href="https://www.booking.com/hotel/jp/okura-frontier-tsukuba-epochal.en-gb.html" target="_blank" class="btn-pill-booking"><i class="fa-solid fa-hotel me-1"></i>Booking.com</a>
+                                <a href="https://www.agoda.com/hotel-jal-city-tsukuba/hotel/tsukuba-jp.html" target="_blank" class="btn-pill-agoda"><i class="fa-solid fa-bed me-1"></i>Agoda</a>
+                                <a href="https://maps.google.com/?q=HOTEL+JAL+City+Tsukuba" target="_blank" class="btn-pill-gmaps"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hotel 4: Toyoko Inn Tsukuba-eki Kenkyu-gakuen-mae -->
+                    <div class="col-md-6">
+                        <div class="border rounded-4 p-3 h-100 bg-white shadow-sm">
+                            <img src="images/toyoko_inn_tsukuba_real.jpg" alt="Toyoko Inn Tsukuba-eki Kenkyu-gakuen-mae" class="img-hotel mb-3">
+                            <div class="d-flex justify-content-between align-items-start mb-2">
+                                <div>
+                                    <h5 class="fw-bold mb-0">Toyoko Inn Tsukuba-eki</h5>
+                                    <p class="small text-muted mb-0"><i class="fa-solid fa-location-dot me-1"></i>Kenkyu-gakuen Station (1 สถานีจาก Tsukuba)</p>
+                                </div>
+                                <span class="badge bg-secondary">7.8 / 10 คุ้มค่า</span>
+                            </div>
+                            <p class="small text-secondary mb-3">โรงแรมประหยัดคุ้มค่า ฟรีอาหารเช้าสไตล์ญี่ปุ่น เดินเพียง 3 นาทีจากสถานีKenkyu-gakuen อยู่ใกล้ห้างสรรพสินค้า iias Tsukuba ห้างใหญ่ที่สุดในแถบนี้</p>
+                            <div class="d-flex gap-2 flex-wrap">
+                                <a href="https://www.booking.com/hotel/jp/toyoko-inn-tsukuba-eki.en-gb.html" target="_blank" class="btn-pill-booking"><i class="fa-solid fa-hotel me-1"></i>Booking.com</a>
+                                <a href="https://www.agoda.com/toyoko-inn-tsukuba-eki-kenkyu-gakuen-mae/hotel/tsukuba-jp.html" target="_blank" class="btn-pill-agoda"><i class="fa-solid fa-bed me-1"></i>Agoda</a>
+                                <a href="https://maps.google.com/?q=Toyoko+Inn+Tsukuba-eki" target="_blank" class="btn-pill-gmaps"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Local Dining & Ramen -->
+        <div class="card-shopifi">
+            <img src="images/ramen_tatsuro_ta1.jpg" alt="ชาม Miso Double Ramen ร้าน Ramen Tatsuro จาก Tripadvisor CDN" class="img-hero">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="fw-bold mb-3">2. อาหารเด็ด & ประสบการณ์ความอร่อยท้องถิ่น</h2>
+                <hr class="my-4">
+
+                <!-- Ramen Tatsuro -->
+                <div class="mb-5">
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                        <h4 class="fw-bold text-dark mb-0">🍜 Ramen Tatsuro (ラーメン龍郎)</h4>
+                        <div>
+                            <a href="https://www.tripadvisor.com/Restaurant_Review-g298167-d9632118-Reviews-Ramen_Tatsuro-Tsukuba_Ibaraki_Prefecture_Kanto.html" target="_blank" class="btn-pill-tripadvisor me-1"><i class="fa-solid fa-plane me-1"></i>Tripadvisor (4.4★ / #67)</a>
+                            <a href="https://tabelog.com/en/ibaraki/A0802/A080201/8011732/" target="_blank" class="btn-pill-tabelog me-1"><i class="fa-solid fa-utensils me-1"></i>Tabelog (3.49★)</a>
+                            <a href="https://maps.google.com/?q=Ramen+Tatsuro+Tsukuba" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
+                            <span class="tag-mint me-1">ราเมนสไตล์จิโร่</span>
+                            <span class="tag-pistachio">ชามยักษ์ หมูชาชูหนา</span>
+                        </div>
+                    </div>
+                    <p class="small text-muted mb-3"><i class="fa-solid fa-location-dot me-1"></i> 3-8-1 Azuma, Tsukuba-shi, Ibaraki (725 เมตร จากสถานี Tsukuba Station / ติด Tsukuba Expo Center)</p>
+
+                    <div class="row g-4 mb-4">
+                        <div class="col-md-6">
+                            <img src="images/ramen_tatsuro_ta2.jpg" alt="ราเมนซุปมิโสะเข้มข้นท็อปปิ้งชาชูหนา ร้าน Ramen Tatsuro (Tripadvisor CDN)" class="img-secondary mb-2">
+                            <p class="text-center small text-muted mb-0"><em>Miso Ramen – Fully Loaded: ซุปกระดูกหมูมิโสะผักพูนๆ ชาชูหนาชิ้นโต (ภาพถ่าย Tripadvisor)</em></p>
+                        </div>
+                        <div class="col-md-6">
+                            <img src="images/ramen_tatsuro_ta3.jpg" alt="เมนูราเมนและท็อปปิ้งร้าน Ramen Tatsuro Tsukuba (Tripadvisor CDN)" class="img-secondary mb-2">
+                            <p class="text-center small text-muted mb-0"><em>ราเมนสไตล์จิโร่ ขวัญใจนักศึกษามหาวิทยาลัยสึกุบะ (ภาพถ่าย Tripadvisor)</em></p>
+                        </div>
+                    </div>
+
+                    <div class="row g-4 mb-3">
+                        <div class="col-md-6">
+                            <h6 class="fw-bold"><i class="fa-solid fa-clock me-2"></i>เวลาทำการ & วันหยุด</h6>
+                            <ul class="small mb-0">
+                                <li><strong>เวลาเปิด-ปิด:</strong> 11:30 - 14:30 น. และ 17:30 - 22:00 น.</li>
+                                <li><strong>วันหยุด:</strong> เปิดทำการทุกวันตลอดปี (Open year-round)</li>
+                                <li><strong>เงื่อนไข:</strong> ปิดร้านเมื่อวัตถุดิบหมด</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h6 class="fw-bold"><i class="fa-solid fa-yen-sign me-2"></i>งบประมาณ & การชำระเงิน</h6>
+                            <ul class="small mb-0">
+                                <li><strong>งบประมาณเฉลี่ย:</strong> ~ 999 เยน / คน</li>
+                                <li><strong>การชำระเงิน:</strong> **รับเฉพาะเงินสดเท่านั้น** (ไม่รับบัตรเครดิต/Electronic Money/QR)</li>
+                                <li><strong>อันดับ Tripadvisor:</strong> **อันดับ 67 จาก 1,362 ร้านอาหารใน Tsukuba**</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <p class="small mb-0">ร้านราเมนยอดนิยมสไตล์ <strong>Jiro-inspired Ramen</strong> เมนูเด็ดประจำร้านคือ <strong>"Miso Ramen (並) 全マシ"</strong> ซุปเข้มข้นหอมเต้าเจี้ยวมิโสะ ท็อปปิ้งกระเทียมสดสับ ถั่วฝักยาว/ถั่วงอกพูนชาม และหมูชาชูชิ้นหนานุ่ม เหมาะมากสำหรับการเติมพลังงานความอบอุ่นในฤดูหนาว</p>
+                </div>
+
+                <hr class="my-4">
+
+                <!-- Hitachi Beef -->
+                <div>
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                        <h4 class="fw-bold text-dark mb-0">🥩 เนื้อวัวฮิตาจิ (Hitachi Beef) & หมูทซึคุบะ (BiVi Tsukuba)</h4>
+                        <a href="https://maps.google.com/?q=BiVi+Tsukuba" target="_blank" class="btn-pill-gmaps"><i class="fa-solid fa-map-location-dot me-1"></i>ดูบน Google Maps</a>
+                    </div>
+                    <p class="small mb-0">เสิร์ฟในรูปแบบสเต๊ก สุกี้ยากี้ หรือทงคัตสึ รับประทานได้สะดวก ณ ศูนย์การค้า BiVi Tsukuba ติดกับสถานี Tsukuba Station</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-white py-4 mt-5" style="background-color: var(--canvas-night);">
+        <div class="container text-center">
+            <p class="mb-0 small text-muted">&copy; 2026 Tsukuba Research Knowledge Portal (SHOPiFi Design Language)</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

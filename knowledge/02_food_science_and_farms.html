@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Science & ฟาร์ม - Tsukuba Knowledge Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-night: #000000;
+            --canvas-night-elevated: #0a0a0a;
+            --canvas-light: #ffffff;
+            --canvas-cream: #fbfbf5;
+            --aloe-10: #c1fbd4;
+            --pistachio-10: #d4f9e0;
+            --ink: #000000;
+            --on-primary: #ffffff;
+            --shade-30: #d4d4d8;
+            --shade-40: #a1a1aa;
+            --shade-50: #71717a;
+            --hairline-light: #e4e4e7;
+            --hairline-dark: #1e2c31;
+        }
+        body {
+            font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-feature-settings: "ss03";
+            background-color: var(--canvas-cream);
+            color: var(--ink);
+        }
+        .navbar-shopifi {
+            background-color: var(--canvas-night);
+            border-bottom: 1px solid var(--hairline-dark);
+            padding: 1rem 0;
+        }
+        .navbar-shopifi .nav-link {
+            color: var(--shade-40);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .navbar-shopifi .nav-link:hover, .navbar-shopifi .nav-link.active {
+            color: var(--on-primary);
+        }
+        .card-shopifi {
+            background-color: var(--canvas-light);
+            border: 1px solid var(--hairline-light);
+            border-radius: 16px;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.03);
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+        }
+        .img-hero { width: 100%; max-height: 400px; object-fit: cover; }
+        .btn-pill-outline-dark {
+            background-color: transparent;
+            color: var(--ink);
+            border: 1.5px solid var(--ink);
+            border-radius: 9999px;
+            padding: 8px 22px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .btn-pill-gmaps {
+            background-color: #ea4335;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-gmaps:hover {
+            background-color: #c5221f;
+            color: var(--on-primary);
+        }
+        .tag-mint {
+            background-color: var(--aloe-10);
+            color: var(--ink);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-pistachio {
+            background-color: var(--pistachio-10);
+            color: var(--ink);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cinematic Navigation (Dark Track) -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-shopifi sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white fs-5" href="index.html">
+                <i class="fa-solid fa-compass me-2 text-white"></i>Tsukuba Knowledge Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link" href="01_science_and_space.html">อวกาศ & วิทยาศาสตร์</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="02_food_science_and_farms.html">Food Science & ฟาร์ม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="03_scenic_nature_and_relax.html">ธรรมชาติ & พักผ่อน</a></li>
+                    <li class="nav-item"><a class="nav-link" href="04_transport_and_logistics.html">การเดินทาง & Pass</a></li>
+                    <li class="nav-item"><a class="nav-link" href="05_hotels_and_dining.html">ที่พัก & ร้านอาหาร</a></li>
+                    <li class="nav-item"><a class="nav-link" href="06_itinerary_and_strategy.html">ยุทธศาสตร์รายวัน</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item active">02. Food Science & ฟาร์ม</li>
+                </ol>
+            </nav>
+            <a href="02_food_science_and_farms_raw.md" class="btn-pill-outline-dark"><i class="fa-solid fa-file-lines me-1"></i>ดูข้อมูลดิบ (Raw Data MD)</a>
+        </div>
+
+        <h1 class="fw-light display-5 mb-2">02. Food Science, การเกษตร & ฟาร์มสตรอเบอร์รี่</h1>
+        <p class="text-muted lead mb-5">ข้อมูลวิจัยนวัตกรรมอาหารสำหรับน้องเติมเต็ม พร้อมกิจกรรมเก็บสตรอเบอร์รี่สดในเรือนกระจกฤดูหนาว</p>
+
+        <!-- Place 1: NARO Agriculture Research Hall -->
+        <div class="card-shopifi">
+            <img src="images/naro_food_research.jpg" alt="ห้องจัดแสดงงานวิจัยวิทยาศาสตร์อาหารและการเกษตรอัจฉริยะ NARO" class="img-hero">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <h2 class="fw-bold mb-0">1. NARO Tsukuba Agriculture Research Hall (食と農の科学館)</h2>
+                    <div>
+                        <a href="https://maps.google.com/?q=NARO+Tsukuba+Agriculture+Research+Hall" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>ดูบน Google Maps</a>
+                        <span class="tag-mint me-1">เข้าชมฟรี (Free Entry)</span>
+                        <span class="tag-pistachio">เปิดช่วง 24-27 ธ.ค.</span>
+                    </div>
+                </div>
+                <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> 3-1-1 Kannondai, Tsukuba City, Ibaraki 305-8517, Japan</p>
+                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> ลิงก์ทางการ: <a href="https://www.naro.go.jp/tarh/" target="_blank" class="fw-bold text-dark">NARO TARH Official Site</a> | ภาษาอังกฤษ: <a href="https://www.naro.go.jp/english/laboratory/tarh/index.html" target="_blank" class="text-dark">NARO English</a></p>
+
+                <hr class="my-4">
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold"><i class="fa-solid fa-clock me-2"></i>เวลาทำการ & วันหยุด</h5>
+                        <ul class="small mb-0">
+                            <li><strong>เวลาทำการ:</strong> 9:00 - 16:00 น. (เปิด จันทร์ - ศุกร์)</li>
+                            <li><strong>วันปิดทำการ:</strong> เสาร์-อาทิตย์, วันหยุดนักขัตฤกษ์ และช่วงปีใหม่ (28 ธ.ค. - 4 ม.ค.)</li>
+                            <li><span class="badge bg-success">สถานะวันที่ 24-27 ธ.ค.</span> <strong>เปิดทำการปกติทุกวัน</strong> (24 อังคาร, 25 พุธ, 26 พฤหัส, 27 ศุกร์)</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold"><i class="fa-solid fa-bus me-2"></i>การเดินทาง (Tsukbus Nambu Shuttle)</h5>
+                        <p class="small text-muted mb-0">จาก Tsukuba Center ขึ้นรถบัส Tsukbus สาย <strong>Nambu Shuttle</strong> (南部シャトル) ลงที่ป้าย <em>"Norin Danchi Chuo"</em> (農林団地中央) ใช้เวลา 18 นาที (ค่าบัส 200-300 เยน) แล้วเดินต่อ 5 นาที</p>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold mb-3"><i class="fa-solid fa-microscope me-2"></i>จุดเด่นและนวัตกรรมอาหาร</h5>
+                <ul>
+                    <li><strong>Food Science & Future Dining:</strong> จัดแสดงการวิเคราะห์โภชนาการพืช เทคโนโลยีแปรรูปอาหาร ถนอมอาหาร และการวิจัยอาหารฟังก์ชัน (Functional Food)</li>
+                    <li><strong>Smart Agriculture Exhibition:</strong> ระบบเกษตรอัจฉริยะ การใช้ AI, หุ่นยนต์หว่านเก็บเกี่ยว และเกษตรกรรมแนวตั้ง</li>
+                    <li><strong>3-Screen Immersive Theater:</strong> โรงภาพยนตร์ 3 จอนำเสนอโลกนวัตกรรมอาหารของญี่ปุ่น</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Place 2: Strawberry Farms in Late December -->
+        <div class="card-shopifi">
+            <img src="images/strawberry_picking.jpg" alt="กิจกรรมเก็บสตรอเบอร์รี่สดจากต้นในเรือนกระจกช่วงฤดูหนาว" class="img-hero">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <h2 class="fw-bold mb-0">2. ฟาร์มสตรอเบอร์รี่สดช่วงฤดูหนาว (Strawberry Picking)</h2>
+                    <div>
+                        <span class="tag-mint me-1">บุฟเฟต์ทานไม่อั้น 30 นาที</span>
+                        <span class="tag-pistachio">หวานฉ่ำฤดูหนาว</span>
+                    </div>
+                </div>
+
+                <hr class="my-4">
+
+                <div class="mb-4 p-4 rounded-3" style="background-color: var(--canvas-cream); border: 1px solid var(--hairline-light);">
+                    <div class="d-flex justify-content-between align-items-center mb-2 flex-wrap gap-2">
+                        <h5 class="fw-bold text-dark mb-0">🍓 Kawarakeya Farm (かわらけや) - เขต Oda</h5>
+                        <a href="https://maps.google.com/?q=Kawarakeya+Tsukuba" target="_blank" class="btn-pill-gmaps"><i class="fa-solid fa-map-location-dot me-1"></i>ดูบน Google Maps</a>
+                    </div>
+                    <p class="small text-muted mb-2"><i class="fa-solid fa-bus me-1"></i> การเดินทาง: ขึ้นรถบัส **Tsukbus** สาย <em>Oda Shuttle</em> (小田シャトル) จาก Tsukuba Center ลงป้าย <em>"Sakae"</em> (栄) 14 นาที (200 เยน) เดินต่อ 10 นาที</p>
+                    <p class="small text-muted mb-2">อัตราค่าบริการ: ผู้ใหญ่ประมาณ 2,000 – 2,800 เยน / เด็กประมาณ 1,500 – 2,300 เยน (เด็ดสดๆ จากต้นทานไม่อั้น 30 นาที)</p>
+                    <p class="small text-secondary mb-0"><i class="fa-solid fa-link me-1"></i> ลิงก์ทางการ: <a href="https://kawarakeya.com/" target="_blank" class="fw-bold text-dark">Kawarakeya Farm Official</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Place 3: Food & Cooking Workshops -->
+        <div class="card-shopifi">
+            <div class="card-body p-4 p-md-5">
+                <h2 class="fw-bold mb-3">3. Workshop ทำอาหาร & ขนมเชิงการเรียนรู้ (Family Cooking Workshop)</h2>
+                <hr class="my-4">
+                <p class="small mb-3">เสริมทักษะความสนุกด้านการประกอบอาหารให้น้องเติมเต็ม โดยเข้าร่วมเวิร์กชอปทำขนมจากแป้งข้าวอิบารากิ (Ibaraki Rice Flour Sweets) หรือทำเบเกอรี่สดใหม่</p>
+                <ul class="small mb-0">
+                    <li><strong>ศูนย์กิจกรรมที่แนะนำ:</strong> <em>Tokyo Gas Tsukuba Cooking Studio</em> หรือ <em>Aozora Kitchen Tsukuba</em> (青空キッチン つくばスクール)</li>
+                    <li><strong>งบประมาณ:</strong> ประมาณ <strong>800 – 2,500 เยนต่อคน</strong></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-white py-4 mt-5" style="background-color: var(--canvas-night);">
+        <div class="container text-center">
+            <p class="mb-0 small text-muted">&copy; 2026 Tsukuba Research Knowledge Portal (SHOPiFi Design Language)</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

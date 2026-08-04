@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>อวกาศ & วิทยาศาสตร์ - Tsukuba Knowledge Portal</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.net/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --canvas-night: #000000;
+            --canvas-night-elevated: #0a0a0a;
+            --canvas-light: #ffffff;
+            --canvas-cream: #fbfbf5;
+            --aloe-10: #c1fbd4;
+            --pistachio-10: #d4f9e0;
+            --ink: #000000;
+            --on-primary: #ffffff;
+            --shade-30: #d4d4d8;
+            --shade-40: #a1a1aa;
+            --shade-50: #71717a;
+            --hairline-light: #e4e4e7;
+            --hairline-dark: #1e2c31;
+        }
+        body {
+            font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-feature-settings: "ss03";
+            background-color: var(--canvas-cream);
+            color: var(--ink);
+        }
+        .navbar-shopifi {
+            background-color: var(--canvas-night);
+            border-bottom: 1px solid var(--hairline-dark);
+            padding: 1rem 0;
+        }
+        .navbar-shopifi .nav-link {
+            color: var(--shade-40);
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .navbar-shopifi .nav-link:hover, .navbar-shopifi .nav-link.active {
+            color: var(--on-primary);
+        }
+        .card-shopifi {
+            background-color: var(--canvas-light);
+            border: 1px solid var(--hairline-light);
+            border-radius: 16px;
+            box-shadow: 0 8px 12px rgba(0,0,0,0.03);
+            margin-bottom: 2.5rem;
+            overflow: hidden;
+        }
+        .img-hero { width: 100%; max-height: 450px; object-fit: cover; }
+        .img-secondary { width: 100%; max-height: 350px; object-fit: cover; border-radius: 12px; }
+        .btn-pill-outline-dark {
+            background-color: transparent;
+            color: var(--ink);
+            border: 1.5px solid var(--ink);
+            border-radius: 9999px;
+            padding: 8px 22px;
+            font-size: 14px;
+            font-weight: 500;
+            text-decoration: none;
+        }
+        .btn-pill-tripadvisor {
+            background-color: #34e0a1;
+            color: #000000;
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-tripadvisor:hover {
+            background-color: #28b883;
+            color: #000000;
+        }
+        .btn-pill-gmaps {
+            background-color: #ea4335;
+            color: var(--on-primary);
+            border-radius: 9999px;
+            padding: 6px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-pill-gmaps:hover {
+            background-color: #c5221f;
+            color: var(--on-primary);
+        }
+        .tag-mint {
+            background-color: var(--aloe-10);
+            color: var(--ink);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .tag-pistachio {
+            background-color: var(--pistachio-10);
+            color: var(--ink);
+            border-radius: 9999px;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Cinematic Navigation (Dark Track) -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-shopifi sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold text-white fs-5" href="index.html">
+                <i class="fa-solid fa-compass me-2 text-white"></i>Tsukuba Knowledge Hub
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">หน้าหลัก</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="01_science_and_space.html">อวกาศ & วิทยาศาสตร์</a></li>
+                    <li class="nav-item"><a class="nav-link" href="02_food_science_and_farms.html">Food Science & ฟาร์ม</a></li>
+                    <li class="nav-item"><a class="nav-link" href="03_scenic_nature_and_relax.html">ธรรมชาติ & พักผ่อน</a></li>
+                    <li class="nav-item"><a class="nav-link" href="04_transport_and_logistics.html">การเดินทาง & Pass</a></li>
+                    <li class="nav-item"><a class="nav-link" href="05_hotels_and_dining.html">ที่พัก & ร้านอาหาร</a></li>
+                    <li class="nav-item"><a class="nav-link" href="06_itinerary_and_strategy.html">ยุทธศาสตร์รายวัน</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">หน้าหลัก</a></li>
+                    <li class="breadcrumb-item active">01. อวกาศ & วิทยาศาสตร์</li>
+                </ol>
+            </nav>
+            <a href="01_science_and_space_raw.md" class="btn-pill-outline-dark"><i class="fa-solid fa-file-lines me-1"></i>ดูข้อมูลดิบ (Raw Data MD)</a>
+        </div>
+
+        <h1 class="fw-light display-5 mb-2">01. อวกาศ & วิทยาศาสตร์</h1>
+        <p class="text-muted lead mb-5">ข้อมูลวิจัยเชิงยุทธศาสตร์ เวลาเปิด-ปิด ค่าเข้าชม อ้างอิงลิงก์ทางการ ภาพจาก Tripadvisor และวิธีเดินทางสำหรับสถานที่สำคัญใน Tsukuba Science City</p>
+
+        <!-- Place 1: JAXA Tsukuba Space Center -->
+        <div class="card-shopifi">
+            <img src="images/jaxa_tsukuba_space_center_ta1.jpg" alt="ภาพนิทรรศการจริง JAXA Tsukuba Space Center จาก Tripadvisor CDN" class="img-hero">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <h2 class="fw-bold mb-0">1. JAXA Tsukuba Space Center (TKSC)</h2>
+                    <div>
+                        <a href="https://www.tripadvisor.com/Attraction_Review-g298167-d1766569-Reviews-Tsukuba_Space_Center-Tsukuba_Ibaraki_Prefecture_Kanto.html" target="_blank" class="btn-pill-tripadvisor me-1"><i class="fa-solid fa-plane me-1"></i>Tripadvisor (4.3★)</a>
+                        <a href="https://maps.google.com/?q=JAXA+Tsukuba+Space+Center" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
+                        <span class="tag-mint me-1">เข้าชมฟรี</span>
+                        <span class="tag-pistachio">เปิดช่วง 24-27 ธ.ค.</span>
+                    </div>
+                </div>
+                <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> 2-1-1 Sengen, Tsukuba-shi, Ibaraki 305-8505, Japan (พื้นที่ 530,000 ตร.ม.)</p>
+                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> ลิงก์ทางการ: <a href="https://global.jaxa.jp/about/centers/tksc/index.html" target="_blank" class="fw-bold text-dark">JAXA Official Site</a> | จองทัวร์: <a href="https://visit-tsukuba.jaxa.jp/" target="_blank" class="text-dark">visit-tsukuba.jaxa.jp</a></p>
+
+                <hr class="my-4">
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <img src="images/jaxa_tsukuba_space_center_ta2.jpg" alt="โมเดลจำลองสถานีอวกาศ Kibo ISS ใน Space Dome (Tripadvisor CDN)" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>Space Dome: โซนจัดแสดงประวัติศาสตร์และนวัตกรรมอวกาศ JAXA Kibo ISS (ภาพถ่าย Tripadvisor)</em></p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/jaxa_tsukuba_space_center_ta3.jpg" alt="จรวด H-II 50m และอุปกรณ์สำรวจอวกาศ JAXA (Tripadvisor CDN)" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>Rocket Plaza: จรวด H-II ของจริงขนาด 50 เมตร (ภาพถ่าย Tripadvisor)</em></p>
+                    </div>
+                </div>
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <h5 class="fw-bold"><i class="fa-solid fa-clock me-2"></i>เวลาทำการ & วันหยุด</h5>
+                        <ul class="small mb-3">
+                            <li><strong>เวลาทำการ:</strong> 9:30 - 17:00 น. (ร้าน Planet Cube ปิด 16:00/16:30 น.)</li>
+                            <li><strong>วันปิดทำการ:</strong> ทุกวันจันทร์ และวันบำรุงรักษาอุปกรณ์</li>
+                            <li><strong>ช่วงปีใหม่ (Year-end):</strong> ปิดทำการ <strong>29 ธันวาคม - 3 มกราคม</strong></li>
+                            <li><span class="badge bg-success">สถานะวันที่ 24-27 ธ.ค.</span> <strong>เปิดทำการปกติทุกวัน</strong></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold"><i class="fa-solid fa-yen-sign me-2"></i>ค่าเข้าชม & ทัวร์นำชม (Guided Tour)</h5>
+                        <ul class="small mb-0">
+                            <li><strong>ชมภายนอก Rocket Plaza / Space Dome:</strong> **ฟรี (Free Entry)**</li>
+                            <li><strong>Guided Tour (70-75 นาที):</strong> ผู้ใหญ่ 500 เยน / เด็กและเยาวชนฟรี (รอบ 10:00, 11:30, 13:30, 15:00 น. ต้องจองล่วงหน้า)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold mb-3"><i class="fa-solid fa-star me-2"></i>จุดเด่นและสิ่งที่น่าสนใจ</h5>
+                <ul class="mb-4">
+                    <li><strong>Rocket Plaza:</strong> จรวด H-II ของจริงขนาดความยาว 50 เมตร จัดแสดงกลางแจ้งหน้าอาคาร (จุดถ่ายรูปแนะนำ)</li>
+                    <li><strong>Space Dome:</strong> โมเดลจำลองขนาดเท่าของจริงของ <strong>"Kibo"</strong> (Japanese Experiment Module บน ISS), ดาวเทียมสื่อสาร และเครื่องยนต์จรวด LE-7A / LE-5B</li>
+                    <li><strong>Planet Cube (Museum Shop):</strong> ร้านขายของที่ระลึก อุปกรณ์อวกาศ และ **Space Food (อาหารอวกาศ)** ให้ลองชิม</li>
+                </ul>
+
+                <div class="p-3 rounded-3" style="background-color: var(--aloe-10);">
+                    <h6 class="fw-bold mb-1"><i class="fa-solid fa-bus me-2"></i>วิธีเดินทาง (Kanto Railway Bus):</h6>
+                    <p class="small text-dark mb-0">จาก Tsukuba Center Bus Terminal ชานชาลา 8 (Bay 8) นั่งรถบัสไป Arakawaoki Station ลงป้าย <em>"JAXA Tsukuba Space Center"</em> (ใช้เวลา 10 นาที อัตราค่าโดยสาร ~200 เยน รถออกทุก 15-20 นาที)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Place 2: Tsukuba Expo Center -->
+        <div class="card-shopifi">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <h2 class="fw-bold mb-0">2. Tsukuba Expo Center</h2>
+                    <div>
+                        <a href="https://maps.google.com/?q=Tsukuba+Expo+Center" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>ดูบน Google Maps</a>
+                        <span class="tag-mint me-1">งานไฟคริสต์มาสถึง 25 ธ.ค.</span>
+                        <span class="tag-pistachio">เปิดช่วง 24-27 ธ.ค.</span>
+                    </div>
+                </div>
+                <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> 2-9 Azuma, Tsukuba-shi, Ibaraki 305-0031 (เดิน 5 นาทีจากสถานี Tsukuba ทางออก A2)</p>
+                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> ลิงก์ทางการ: <a href="https://www.expocenter.or.jp/english/" target="_blank" class="fw-bold text-dark">Tsukuba Expo Center English</a></p>
+
+                <hr class="my-4">
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <img src="images/tsukuba_expo_center_facility_map.jpeg" alt="Tsukuba Expo Center Facility Map and Exhibition Guide" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>แผนผังโซนจัดแสดงนิทรรศการวิทยาศาสตร์ Tsukuba Expo Center</em></p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold"><i class="fa-solid fa-clock me-2"></i>เวลาทำการ & วันหยุด</h5>
+                        <ul class="small mb-3">
+                            <li><strong>เวลาทำการ:</strong> 9:50 - 17:00 น. (เข้าชมรอบสุดท้าย 16:30 น.)</li>
+                            <li><strong>วันปิดทำการ:</strong> ทุกวันจันทร์ / ปิดปีใหม่ **28 - 31 ธันวาคม**</li>
+                            <li><span class="badge bg-success">สถานะวันที่ 24-27 ธ.ค.</span> <strong>เปิดทำการปกติ</strong></li>
+                        </ul>
+
+                        <h5 class="fw-bold"><i class="fa-solid fa-yen-sign me-2"></i>ค่าเข้าชม</h5>
+                        <ul class="small mb-0">
+                            <li><strong>บัตรเข้านิทรรศการ:</strong> ผู้ใหญ่ 600 เยน / เด็ก (4 ขวบ - ม.ปลาย) 300 เยน</li>
+                            <li><strong>บัตรรวมท้องฟ้าจำลอง (Planetarium Set):</strong> ผู้ใหญ่ 1,000 เยน / เด็ก 500 เยน</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <h5 class="fw-bold mb-3"><i class="fa-solid fa-star me-2"></i>จุดเด่นและงานไฟพิเศษ</h5>
+                <ul>
+                    <li><strong>Planetarium (ท้องฟ้าจำลองยักษ์ 25.6m):</strong> หนึ่งในท้องฟ้าจำลองที่ใหญ่ที่สุดในโลก ฉายภาพระบบดาวความคมชัดสูง</li>
+                    <li><strong>Tsukuba Expo Center Christmas Illumination:</strong> งานประดับไฟ LED รอบโดมท้องฟ้าจำลองริมน้ำ เปิดไฟ 16:00 – 21:00 น. (29 พ.ย. – 25 ธ.ค.)</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Place 3: Geological Museum (พิพิธภัณฑ์ธรณีวิทยา AIST) -->
+        <div class="card-shopifi">
+            <img src="images/geological_museum_ta1.jpg" alt="อาคารจริง Geological Museum Tsukuba (Tripadvisor CDN)" class="img-hero">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <h2 class="fw-bold mb-0">3. Geological Museum (พิพิธภัณฑ์ธรณีวิทยา AIST)</h2>
+                    <div>
+                        <a href="https://www.tripadvisor.com/Attraction_Review-g298167-d1918235-Reviews-Geological_Museum-Tsukuba_Ibaraki_Prefecture_Kanto.html" target="_blank" class="btn-pill-tripadvisor me-1"><i class="fa-solid fa-plane me-1"></i>Tripadvisor (4.3★)</a>
+                        <a href="https://maps.google.com/?q=Geological+Museum+Tsukuba" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
+                        <span class="tag-mint me-1">เข้าชมฟรี</span>
+                        <span class="tag-shade">แร่ & ฟอสซิล</span>
+                    </div>
+                </div>
+                <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> 1-1-1 Higashi, Tsukuba-shi, Ibaraki 305-0046 (อยู่ติดกับ Science Square AIST)</p>
+                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> ลิงก์ทางการ: <a href="http://www.gsj.jp/Muse/" target="_blank" class="fw-bold text-dark">Geological Museum Official</a></p>
+
+                <hr class="my-4">
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <img src="images/geological_museum_ta2.jpg" alt="นิทรรศการแร่ธาตุและฟอสซิลหายากใน Geological Museum (Tripadvisor CDN)" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>จัดแสดงแร่ธาตุอัญมณี ฟอสซิล และโครงสร้างเปลือกโลก (ภาพถ่าย Tripadvisor)</em></p>
+                    </div>
+                    <div class="col-md-6">
+                        <h5 class="fw-bold"><i class="fa-solid fa-clock me-2"></i>เวลาทำการ & วันหยุด</h5>
+                        <ul class="small mb-3">
+                            <li><strong>เวลาทำการ:</strong> 9:30 - 16:30 น. (เปิด อังคาร - อาทิตย์)</li>
+                            <li><strong>วันปิดทำการ:</strong> ทุกวันจันทร์ (ปิดทำการช่วงปีใหม่)</li>
+                            <li><span class="badge bg-success">สถานะวันที่ 24-27 ธ.ค.</span> <strong>เปิดทำการปกติทุกวัน</strong></li>
+                        </ul>
+
+                        <h5 class="fw-bold"><i class="fa-solid fa-yen-sign me-2"></i>ค่าเข้าชม & จุดเด่น</h5>
+                        <ul class="small mb-0">
+                            <li><strong>ค่าเข้าชม:</strong> **ฟรี (Free Entry)**</li>
+                            <li><strong>จุดเด่น:</strong> นิทรรศการจัดแสดงแร่ธาตุประกายงาม ตัวอย่างหินอุกกาบาต ไดโนเสาร์ ฟอสซิลโบราณ และประวัติการเกิดแผ่นดินไหวในญี่ปุ่น</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Place 4: Science Square TSUKUBA (AIST) -->
+        <div class="card-shopifi">
+            <img src="images/science_square_ta1.jpg" alt="อาคารและทางเข้า Science Square TSUKUBA (Tripadvisor CDN)" class="img-hero">
+            <div class="card-body p-4 p-md-5">
+                <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+                    <h2 class="fw-bold mb-0">4. Science Square TSUKUBA (AIST)</h2>
+                    <div>
+                        <a href="https://www.tripadvisor.com/Attraction_Review-g298167-d6851494-Reviews-Science_Square_TSUKUBA-Tsukuba_Ibaraki_Prefecture_Kanto.html" target="_blank" class="btn-pill-tripadvisor me-1"><i class="fa-solid fa-plane me-1"></i>Tripadvisor (3.8★)</a>
+                        <a href="https://maps.google.com/?q=Science+Square+Tsukuba" target="_blank" class="btn-pill-gmaps me-1"><i class="fa-solid fa-map-location-dot me-1"></i>Google Maps</a>
+                        <span class="tag-mint me-1">เข้าชมฟรี</span>
+                        <span class="tag-shade">หุ่นยนต์ & AI</span>
+                    </div>
+                </div>
+                <p class="text-muted mb-2"><i class="fa-solid fa-location-dot me-1"></i> 1-1-1 Higashi Chuo Daiichi Honkan 1F, Tsukuba-shi, Ibaraki (ห่างจาก JAXA 500 เมตร)</p>
+                <p class="small text-secondary mb-4"><i class="fa-solid fa-link me-1"></i> ลิงก์ทางการ: <a href="https://www.aist.go.jp/sc/cube/" target="_blank" class="fw-bold text-dark">AIST Science Square Official</a></p>
+
+                <hr class="my-4">
+
+                <div class="row g-4 mb-4">
+                    <div class="col-md-6">
+                        <img src="images/science_square_ta2.jpg" alt="หุ่นยนต์บำบัด Paro และโซนเทคโนโลยี AIST (Tripadvisor CDN)" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>จัดแสดงนวัตกรรมหุ่นยนต์ Paro และวัสดุศาสตร์อนาคต (ภาพถ่าย Tripadvisor)</em></p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="images/science_square_ta3.jpg" alt="โซนสาธิตนวัตกรรมอนาคต Science Square (Tripadvisor CDN)" class="img-secondary mb-2">
+                        <p class="text-center small text-muted mb-0"><em>โซนนิทรรศการกรีนเทคโนโลยีและพลังงานสะอาด (ภาพถ่าย Tripadvisor)</em></p>
+                    </div>
+                </div>
+
+                <div class="row g-2 text-small mb-3">
+                    <div class="col-md-6"><strong><i class="fa-regular fa-clock me-1"></i> เวลาทำการ:</strong> 9:30 - 17:00 น. (ปิดวันจันทร์ / ปิดปีใหม่ 29 ธ.ค. - 3 ม.ค.)</div>
+                    <div class="col-md-6"><strong><i class="fa-solid fa-bus me-1"></i> การเดินทาง:</strong> บัสป้าย 4 จาก Tsukuba Center ลงป้าย <em>"Namiki 1-chome"</em> เดิน 3 นาที</div>
+                </div>
+
+                <h5 class="fw-bold mb-2"><i class="fa-solid fa-star me-2"></i>จุดเด่น</h5>
+                <p class="small mb-0">จัดแสดงหุ่นยนต์บำบัด <strong>"Paro"</strong> (หุ่นยนต์แมวน้ำที่โต้ตอบสัมผัสและเสียงได้) พร้อมนวัตกรรมพลังงานสะอาด กรีนเทคโนโลยี โซลาร์เซลล์รุ่นใหม่ และวัสดุศาสตร์แห่งอนาคต โดยมีร้านอาหารของศูนย์ AIST ด้านหลังอาคารให้บริการอาหารราคาย่อมเยาเปิดให้ผู้เข้าชมใช้บริการได้ด้วย</p>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-white py-4 mt-5" style="background-color: var(--canvas-night);">
+        <div class="container text-center">
+            <p class="mb-0 small text-muted">&copy; 2026 Tsukuba Research Knowledge Portal (SHOPiFi Design Language)</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

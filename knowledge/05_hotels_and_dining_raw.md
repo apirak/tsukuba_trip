@@ -65,3 +65,19 @@
   - ✈️ **Tripadvisor:** [Ramen Tatsuro on Tripadvisor](https://www.tripadvisor.com/Restaurant_Review-g298167-d9632118-Reviews-Ramen_Tatsuro-Tsukuba_Ibaraki_Prefecture_Kanto.html)
   - 🍜 **Tabelog:** [Ramen Tatsuro on Tabelog](https://tabelog.com/en/ibaraki/A0802/A080201/8011732/)
   - 📍 **Google Maps:** [Ramen Tatsuro on Google Maps](https://maps.google.com/?q=Ramen+Tatsuro+Tsukuba)
+
+---
+
+### โซบะ ชิน อิดะ (Soba Shin Ida - 蕎麦 Shin 飯田)
+- **ทำเล:** 552-3 Tsukuba, Tsukuba City, Ibaraki 〒300-4352 (เชิงเขา Tsukuba)
+- **ภาพถ่าย (JapanTravel CDN):**
+  - `images/soba_shin_ida_ext.webp` (เรือนญี่ปุ่นโบราณบรรยากาศบ้านพักตากอากาศ)
+  - `images/soba_shin_ida_duck.webp` (โซบะเย็นกับเนื้อเป็ดปิ้งย่างบนโต๊ะอาหาร)
+  - `images/soba_shin_ida_matcha.webp` (ชุดต้อนรับมัทฉะร้อนและขนมเซมเบ้)
+- **เมนูไฮไลท์:** **โซบะเย็นกับเนื้อเป็ดปิ้งย่างบนโต๊ะอาหาร (Kamo Niku Soba)** เมนูสร้างชื่ออันดับ 1 เนื้อเป็ดชิ้นหนานุ่ม ไร้กลิ่นคาว ปิ้งย่างร้อนๆ บนโต๊ะ ทานคู่กับโซบะทำมือจากเมล็ดบัควีตสดใหม่
+- **แนวคิดการปรุง:** "ฟูมิ" (Fuumi - 風味) รสชาติหอมหวนกลมกล่อมระดับปรมาจารย์โซบะ (Soba Master)
+- **การบริการพิเศษ:** เสิร์ฟชาเขียวมัทฉะร้อนและขนมเซมเบ้ต้อนรับฟรี / Soba Master สอนวิธีรับประทานโซบะถึง 5 ขั้นตอน
+- **การเดินทาง:** นั่งบัส *Tsukuba Northbound Shuttle (つくバス北部シャトル)* จากสถานี Tsukuba Station ไปลงสุดสายป้าย *Tsukuba Yamaguchi (筑波山口)* แล้วเดินขึ้นเนิน 20 นาที (มีที่จอดรถ)
+- **ลิงก์ข้อมูล:**
+  - 🧭 **JapanTravel Article:** [บะหมี่โซบะทำมือ อาหารขึ้นชื่อของซึตคุบะ (JapanTravel.com)](https://th.japantravel.com/ibaraki/บะหมี่โซบะทำมือ-อาหารขึ้นชื่อของซึตคุบะ/53268)
+  - 📍 **Google Maps:** [Soba Shin Ida on Google Maps](https://maps.google.com/?q=36.2046005,140.0967394)
